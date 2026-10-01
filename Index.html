@@ -5,1213 +5,2226 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Girl 🌸❤️</title>
+<title>1 OKTOBER — MY GIRL ❤️</title>
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
-body{
-    overflow:hidden;
-    min-height:100vh;
-    font-family:Georgia,serif;
-    background:
-        radial-gradient(circle at center,#4b1d40,#170b1b 50%,#040207);
-    color:white;
+html{
+    scroll-behavior:smooth;
 }
 
-/* =========================
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#050006;
+    color:white;
+    overflow:hidden;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:-50%;
+    background:
+        radial-gradient(
+            circle at 20% 30%,
+            rgba(255,30,130,.22),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(255,80,170,.18),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(180,0,100,.20),
+            transparent 30%
+        );
+    animation:bgMove 12s ease-in-out infinite alternate;
+    z-index:-10;
+}
+
+@keyframes bgMove{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(4%,3%) scale(1.08);
+    }
+
+    100%{
+        transform:translate(-4%,-3%) scale(1);
+    }
+
+}
+
+/* =========================================================
    BINTANG
-========================= */
+========================================================= */
 
 .stars{
     position:fixed;
     inset:0;
-    pointer-events:none;
-}
+    z-index:-9;
 
-.star{
-    position:absolute;
-    width:3px;
-    height:3px;
-    background:white;
-    border-radius:50%;
-    animation:twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle{
-    from{
-        opacity:.2;
-        transform:scale(.5);
-    }
-    to{
-        opacity:1;
-        transform:scale(1.5);
-    }
-}
-
-
-/* =========================
-   HALAMAN
-========================= */
-
-.page{
-    position:fixed;
-    inset:0;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-    text-align:center;
-
-    opacity:0;
-    visibility:hidden;
-
-    transform:scale(.8);
-
-    transition:
-        .9s ease;
-}
-
-.page.active{
-    opacity:1;
-    visibility:visible;
-    transform:scale(1);
-}
-
-
-/* =========================
-   JUDUL
-========================= */
-
-.title{
-    font-size:clamp(42px,9vw,85px);
-
-    color:#ffacd4;
-
-    text-shadow:
-        0 0 10px #ff4d9d,
-        0 0 30px #ff2485,
-        0 0 60px #ff2485;
-
-    animation:titleShake 2.5s infinite;
-}
-
-@keyframes titleShake{
-
-    0%,90%,100%{
-        transform:rotate(0);
-    }
-
-    92%{
-        transform:rotate(-3deg);
-    }
-
-    94%{
-        transform:rotate(3deg);
-    }
-
-    96%{
-        transform:rotate(-2deg);
-    }
-
-    98%{
-        transform:rotate(2deg);
-    }
-}
-
-
-/* =========================
-   BUNGA BESAR
-========================= */
-
-.flower{
-    position:relative;
-
-    width:230px;
-    height:250px;
-
-    margin-bottom:10px;
-}
-
-
-/* BATANG UTAMA */
-
-.main-stem{
-    position:absolute;
-
-    width:10px;
-    height:170px;
-
-    bottom:0;
-    left:110px;
-
-    background:
-        linear-gradient(
-            to right,
-            #174b22,
-            #70b95b,
-            #174b22
+    background-image:
+        radial-gradient(
+            white 1px,
+            transparent 1px
         );
 
-    border-radius:10px;
+    background-size:
+        45px 45px;
 
-    transform-origin:bottom;
-
-    animation:sway 4s infinite ease-in-out;
-}
-
-@keyframes sway{
-
-    0%,100%{
-        transform:rotate(-3deg);
-    }
-
-    50%{
-        transform:rotate(4deg);
-    }
-}
-
-
-/* =========================
-   BUNGA
-========================= */
-
-.bloom{
-    position:absolute;
-
-    width:145px;
-    height:145px;
-
-    top:0;
-    left:50%;
-
-    transform:
-        translateX(-50%)
-        scale(.05);
+    opacity:.22;
 
     animation:
-        bloom 3s forwards,
-        flowerMove 5s ease-in-out infinite 3s;
+        starsMove
+        25s linear infinite;
 }
 
-@keyframes bloom{
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(45px);
+    }
+
+}
+
+/* =========================================================
+   BACKGROUND BUNGA
+========================================================= */
+
+.flower-bg{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:-5;
+    overflow:hidden;
+}
+
+/* bunga */
+
+.bg-flower{
+    position:absolute;
+    font-size:40px;
+    opacity:.55;
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(255,70,160,.7)
+        );
+
+    animation:
+        flowerFloat
+        linear infinite;
+}
+
+@keyframes flowerFloat{
 
     0%{
         transform:
-            translateX(-50%)
-            scale(.05)
-            rotate(-40deg);
+            translateY(110vh)
+            translateX(0)
+            rotate(0deg)
+            scale(.7);
+
+        opacity:0;
     }
 
-    60%{
+    10%{
+        opacity:.6;
+    }
+
+    50%{
         transform:
-            translateX(-50%)
-            scale(1.2)
-            rotate(10deg);
+            translateY(50vh)
+            translateX(50px)
+            rotate(180deg)
+            scale(1);
     }
 
     100%{
         transform:
-            translateX(-50%)
-            scale(1)
-            rotate(0);
+            translateY(-15vh)
+            translateX(-50px)
+            rotate(360deg)
+            scale(.8);
+
+        opacity:0;
     }
+
 }
 
-@keyframes flowerMove{
+/* =========================================================
+   KELopak bunga
+========================================================= */
 
-    0%,100%{
+.petal{
+    position:fixed;
+    top:-50px;
+    z-index:20;
+    pointer-events:none;
+
+    animation:
+        fallingPetal
+        linear forwards;
+}
+
+@keyframes fallingPetal{
+
+    0%{
         transform:
-            translateX(-50%)
-            rotate(-5deg);
+            translateY(0)
+            translateX(0)
+            rotate(0);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
     }
 
     50%{
         transform:
-            translateX(-50%)
-            rotate(5deg);
+            translateY(50vh)
+            translateX(80px)
+            rotate(180deg);
     }
+
+    100%{
+        transform:
+            translateY(110vh)
+            translateX(-100px)
+            rotate(360deg);
+        opacity:0;
+    }
+
 }
 
+/* =========================================================
+   PAGE
+========================================================= */
 
-/* KELOPAK */
+.page{
+    display:none;
 
-.petal{
-    position:absolute;
+    width:100%;
+    height:100vh;
 
-    width:72px;
-    height:95px;
+    overflow:auto;
 
-    left:36px;
-    top:25px;
+    padding:
+        30px
+        20px;
 
-    border-radius:
-        60% 60% 50% 50%;
+    text-align:center;
+
+    scrollbar-width:none;
+}
+
+.page::-webkit-scrollbar{
+    display:none;
+}
+
+.page.active{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
+
+.login-container{
+
+    width:min(
+        950px,
+        96%
+    );
+
+    padding:35px;
+
+    border-radius:35px;
 
     background:
-        radial-gradient(
-            circle at 50% 20%,
-            #ffe1ed,
-            #ff79b9 45%,
-            #ed277c
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.09),
+            rgba(255,0,120,.04)
         );
 
+    border:
+        1px solid
+        rgba(255,100,180,.35);
+
+    backdrop-filter:
+        blur(20px);
+
     box-shadow:
-        0 0 20px #ff3d91;
+        0 0 40px
+        rgba(255,0,130,.20),
+
+        inset 0 0 40px
+        rgba(255,0,130,.05);
+
+    animation:
+        containerAppear
+        1.2s ease;
 }
 
-.petal:nth-child(1){
-    transform:rotate(0deg) translateY(-27px);
+@keyframes containerAppear{
+
+    from{
+        opacity:0;
+        transform:
+            translateY(40px)
+            scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
 }
 
-.petal:nth-child(2){
-    transform:rotate(72deg) translateY(-27px);
+.date{
+
+    color:#ff80bc;
+
+    font-size:
+        clamp(
+            18px,
+            4vw,
+            27px
+        );
+
+    letter-spacing:5px;
+
+    margin-bottom:10px;
+
+    text-shadow:
+        0 0 15px
+        #ff1685;
 }
 
-.petal:nth-child(3){
-    transform:rotate(144deg) translateY(-27px);
+.login-title{
+
+    font-size:
+        clamp(
+            40px,
+            8vw,
+            75px
+        );
+
+    color:white;
+
+    text-shadow:
+        0 0 10px #ff2c91,
+        0 0 30px #ff2c91,
+        0 0 60px #ff2c91;
+
+    margin-bottom:8px;
 }
 
-.petal:nth-child(4){
-    transform:rotate(216deg) translateY(-27px);
+.login-subtitle{
+
+    color:#ffd3e8;
+
+    font-size:17px;
+
+    margin-bottom:30px;
 }
 
-.petal:nth-child(5){
-    transform:rotate(288deg) translateY(-27px);
+/* =========================================================
+   BUNGA UTAMA LOGIN
+========================================================= */
+
+.main-flower{
+
+    position:relative;
+
+    width:130px;
+    height:130px;
+
+    margin:
+        0 auto 25px;
+
+    animation:
+        mainFlowerSway
+        4s ease-in-out infinite;
 }
 
+@keyframes mainFlowerSway{
 
-/* TENGAH */
+    0%,100%{
+        transform:rotate(-5deg);
+    }
 
-.flower-center{
+    50%{
+        transform:rotate(5deg);
+    }
+
+}
+
+.main-flower span{
+
     position:absolute;
 
-    width:48px;
-    height:48px;
-
-    left:48px;
-    top:48px;
+    width:60px;
+    height:60px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            #fff4a5,
-            #ffd238,
-            #e69a16
+            #ffb4d8,
+            #ff2688
         );
 
     box-shadow:
-        0 0 25px #ffd83d;
+        0 0 25px
+        #ff2688;
 
-    z-index:10;
 }
 
-
-/* =========================
-   CABANG 9
-========================= */
-
-.branches{
-    position:fixed;
-    inset:0;
-
-    pointer-events:none;
+.main-flower span:nth-child(1){
+    top:0;
+    left:35px;
 }
 
+.main-flower span:nth-child(2){
+    top:35px;
+    left:0;
+}
 
-/* SETIAP CABANG */
+.main-flower span:nth-child(3){
+    top:35px;
+    right:0;
+}
 
-.branch{
+.main-flower span:nth-child(4){
+    bottom:0;
+    left:35px;
+}
+
+.main-flower i{
+
     position:absolute;
 
-    width:280px;
-    min-height:125px;
+    width:42px;
+    height:42px;
 
-    padding:10px;
+    border-radius:50%;
 
-    display:flex;
-    align-items:center;
-    gap:10px;
+    background:#ffd34e;
 
-    background:
-        rgba(30,8,25,.88);
-
-    border:
-        1px solid #ff71b4;
-
-    border-radius:18px;
+    top:44px;
+    left:44px;
 
     box-shadow:
-        0 0 20px rgba(255,60,145,.45);
+        0 0 25px #ffd34e;
 
-    opacity:0;
-
-    transition:
-        1s ease;
-
-    pointer-events:auto;
 }
 
+/* =========================================================
+   PHOTO CODE
+========================================================= */
 
-/* GAMBAR */
+.code-title{
 
-.branch img{
-    width:85px;
-    height:100px;
+    color:#ffe0ef;
+
+    margin-bottom:20px;
+
+    font-size:18px;
+}
+
+.photo-code{
+
+    width:min(
+        700px,
+        100%
+    );
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:15px;
+}
+
+.code-image{
+
+    height:155px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:23px;
+
+    border:
+        2px solid
+        rgba(255,80,160,.7);
+
+    cursor:pointer;
+
+    transition:
+        .35s ease;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,30,130,.25);
+}
+
+.code-image img{
+
+    width:100%;
+    height:100%;
 
     object-fit:cover;
 
-    border-radius:14px;
-
-    border:2px solid #ff8bc4;
-
-    box-shadow:
-        0 0 15px #ff3d91;
-
-    flex-shrink:0;
+    transition:
+        .5s;
 }
 
-
-/* TEKS */
-
-.branch-text{
-    font-size:14px;
-    line-height:1.5;
-    color:#ffe4f0;
-}
-
-.branch-text strong{
-    display:block;
-
-    color:#ff8fc2;
-
-    font-size:16px;
-
-    margin-bottom:5px;
-}
-
-
-/* =========================
-   POSISI 9 CABANG
-========================= */
-
-.branch:nth-child(1){
-    top:8%;
-    left:3%;
-}
-
-.branch:nth-child(2){
-    top:30%;
-    left:3%;
-}
-
-.branch:nth-child(3){
-    top:55%;
-    left:3%;
-}
-
-.branch:nth-child(4){
-    top:76%;
-    left:8%;
-}
-
-.branch:nth-child(5){
-    top:8%;
-    right:3%;
-}
-
-.branch:nth-child(6){
-    top:30%;
-    right:3%;
-}
-
-.branch:nth-child(7){
-    top:55%;
-    right:3%;
-}
-
-.branch:nth-child(8){
-    top:76%;
-    right:8%;
-}
-
-.branch:nth-child(9){
-    top:42%;
-    left:50%;
+.code-image:hover{
 
     transform:
-        translateX(-50%);
+        scale(1.05)
+        translateY(-5px);
 
-    width:300px;
+    box-shadow:
+        0 0 35px
+        #ff2088;
 }
 
+.code-image:hover img{
 
-/* CABANG MUNCUL */
+    transform:scale(1.1);
+}
 
-.branch.show{
-    opacity:1;
+.code-image.selected{
+
+    border:
+        4px solid
+        white;
+
+    transform:
+        scale(1.05);
+
+    box-shadow:
+        0 0 35px
+        #ff45a0;
+}
+
+.number{
+
+    position:absolute;
+
+    top:8px;
+    right:8px;
+
+    width:30px;
+    height:30px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,0,120,.85);
+
+    font-weight:bold;
+
+}
+
+.selected-number{
+
+    position:absolute;
+
+    bottom:8px;
+    left:8px;
+
+    padding:
+        5px
+        12px;
+
+    border-radius:20px;
+
+    background:white;
+
+    color:#ff1680;
+
+    font-weight:bold;
+
+    display:none;
+}
+
+.code-image.selected
+.selected-number{
+
+    display:block;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status{
+
+    min-height:100px;
+
+    margin-top:20px;
+}
+
+.wrong{
+
+    color:#ff8bbf;
+
+    font-size:18px;
 
     animation:
-        branchAppear 1s ease;
+        wrongShake
+        .5s infinite;
 }
 
-@keyframes branchAppear{
+@keyframes wrongShake{
 
-    from{
-        opacity:0;
-
-        transform:
-            scale(.3)
-            translateY(30px);
+    0%,100%{
+        transform:translateX(0);
     }
 
-    to{
-        opacity:1;
-
-        transform:
-            scale(1)
-            translateY(0);
+    25%{
+        transform:translateX(-7px);
     }
+
+    75%{
+        transform:translateX(7px);
+    }
+
 }
 
+.correct-code{
 
-/* =========================
-   TOMBOL
-========================= */
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:8px;
+
+    margin:15px;
+}
+
+.correct-code span{
+
+    background:#ff197e;
+
+    padding:
+        8px 14px;
+
+    border-radius:20px;
+
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
 
 button{
-    position:relative;
-    z-index:100;
-
-    margin-top:15px;
-
-    padding:13px 28px;
 
     border:none;
 
-    border-radius:30px;
+    padding:
+        14px 26px;
 
-    color:white;
+    border-radius:30px;
 
     background:
         linear-gradient(
             45deg,
-            #ff2f88,
-            #ff8bc4
+            #ff147c,
+            #ff72b4
         );
 
-    box-shadow:
-        0 0 20px #ff3188;
+    color:white;
 
     font-size:16px;
 
+    font-weight:bold;
+
     cursor:pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(255,25,130,.7);
 
     transition:.3s;
 }
 
 button:hover{
-    transform:scale(1.1);
+
+    transform:
+        scale(1.08);
+
+    box-shadow:
+        0 0 35px
+        #ff2d94;
 }
 
+/* =========================================================
+   MEMORY PAGE
+========================================================= */
 
-/* =========================
-   HALAMAN PENUTUP
-========================= */
-
-.closing{
-    max-width:800px;
-
-    padding:30px;
-}
-
-.closing h1{
+.memory-title{
 
     font-size:
-        clamp(38px,8vw,75px);
+        clamp(
+            30px,
+            6vw,
+            55px
+        );
 
-    color:#ff9bc9;
+    color:#ff8bc5;
 
     text-shadow:
-        0 0 15px #ff3d91,
-        0 0 40px #ff2485;
+        0 0 20px #ff1685;
+
+    margin-bottom:8px;
 }
 
+.memory-date{
 
-/* KOCOKAN KATA-KATA */
+    color:#ffd1e4;
 
-.shake-text{
+    margin-bottom:8px;
+}
 
-    margin-top:25px;
+.memory-subtitle{
 
-    font-size:
-        clamp(19px,4vw,30px);
+    color:#ffc6df;
 
-    line-height:1.8;
+    margin-bottom:30px;
+}
 
-    color:#ffe7f2;
+.memory-grid{
+
+    width:min(
+        1050px,
+        95%
+    );
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,1fr);
+
+    gap:18px;
+}
+
+.memory-card{
+
+    min-height:180px;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.09),
+            rgba(255,0,120,.05)
+        );
+
+    border:
+        1px solid
+        rgba(255,100,180,.4);
+
+    box-shadow:
+        0 0 20px
+        rgba(255,30,130,.15);
+
+    cursor:pointer;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:.4s;
+
+    backdrop-filter:blur(8px);
+}
+
+.memory-card:hover{
+
+    transform:
+        translateY(-10px)
+        scale(1.04)
+        rotate(-1deg);
+
+    box-shadow:
+        0 0 35px
+        #ff2389;
+}
+
+.memory-icon{
+
+    font-size:55px;
+
+    margin-bottom:10px;
 
     animation:
-        shakeText 1.5s infinite;
+        flowerSway
+        3s ease-in-out infinite;
 }
 
-@keyframes shakeText{
+@keyframes flowerSway{
 
     0%,100%{
         transform:
-            translateX(0)
-            rotate(0);
-    }
-
-    10%{
-        transform:
-            translateX(-8px)
-            rotate(-2deg);
-    }
-
-    20%{
-        transform:
-            translateX(8px)
-            rotate(2deg);
-    }
-
-    30%{
-        transform:
-            translateX(-7px)
-            rotate(-1deg);
-    }
-
-    40%{
-        transform:
-            translateX(7px)
-            rotate(1deg);
+            rotate(-5deg);
     }
 
     50%{
         transform:
-            translateX(-4px);
+            rotate(5deg)
+            translateY(-5px);
     }
 
-    60%{
-        transform:
-            translateX(4px);
-    }
 }
 
-.shake-text span{
-    color:#ff71b4;
+.memory-card h3{
 
-    font-weight:bold;
+    color:#ff9dca;
 
-    text-shadow:
-        0 0 15px #ff3d91;
+    margin-bottom:6px;
 }
 
+.memory-card p{
 
-/* =========================
-   HATI
-========================= */
+    color:#ffd8e8;
 
-.heart{
+    font-size:13px;
+}
+
+/* =========================================================
+   MODAL
+========================================================= */
+
+.modal{
+
     position:fixed;
 
-    bottom:-40px;
+    inset:0;
 
-    font-size:22px;
+    background:
+        rgba(0,0,0,.88);
 
-    pointer-events:none;
+    display:none;
 
-    animation:
-        heartFly linear forwards;
+    justify-content:center;
 
-    z-index:5;
+    align-items:center;
+
+    padding:20px;
+
+    z-index:100;
 }
 
-@keyframes heartFly{
+.modal.active{
+
+    display:flex;
+}
+
+.modal-box{
+
+    width:min(
+        520px,
+        95%
+    );
+
+    max-height:90vh;
+
+    overflow:auto;
+
+    padding:22px;
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #19000e,
+            #090006
+        );
+
+    border:
+        2px solid
+        #ff3d96;
+
+    box-shadow:
+        0 0 60px
+        #ff1685;
+
+    animation:
+        modalPop
+        .5s ease;
+}
+
+@keyframes modalPop{
 
     from{
         transform:
-            translateY(0)
+            scale(.5)
+            rotate(-5deg);
+
+        opacity:0;
+    }
+
+    to{
+        transform:
+            scale(1)
             rotate(0);
 
         opacity:1;
     }
 
+}
+
+.modal-box img{
+
+    width:100%;
+
+    max-height:380px;
+
+    object-fit:cover;
+
+    border-radius:20px;
+
+    margin-bottom:15px;
+}
+
+.modal-box h2{
+
+    color:#ff86be;
+
+    margin-bottom:12px;
+}
+
+.modal-box p{
+
+    color:#ffe0ec;
+
+    line-height:1.7;
+
+    margin-bottom:20px;
+}
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+.final-page{
+
+    position:relative;
+}
+
+.final-flower{
+
+    font-size:
+        clamp(
+            80px,
+            15vw,
+            150px
+        );
+
+    animation:
+        finalFlower
+        4s ease-in-out infinite;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            #ff2b91
+        );
+
+}
+
+@keyframes finalFlower{
+
+    0%,100%{
+        transform:
+            scale(.95)
+            rotate(-5deg);
+    }
+
+    50%{
+        transform:
+            scale(1.12)
+            rotate(5deg);
+    }
+
+}
+
+.final-date{
+
+    color:#ff8bc5;
+
+    font-size:20px;
+
+    letter-spacing:7px;
+
+    margin-bottom:8px;
+}
+
+.final-title{
+
+    font-size:
+        clamp(
+            40px,
+            10vw,
+            85px
+        );
+
+    text-shadow:
+        0 0 15px #ff1685,
+        0 0 35px #ff1685;
+}
+
+.shake-word{
+
+    margin-top:25px;
+
+    font-size:
+        clamp(
+            20px,
+            5vw,
+            38px
+        );
+
+    color:#ff91c4;
+
+    animation:
+        shake
+        .4s infinite;
+}
+
+@keyframes shake{
+
+    0%{
+        transform:
+            translateX(0)
+            rotate(0);
+    }
+
+    20%{
+        transform:
+            translateX(-8px)
+            rotate(-2deg);
+    }
+
+    40%{
+        transform:
+            translateX(8px)
+            rotate(2deg);
+    }
+
+    60%{
+        transform:
+            translateX(-6px)
+            rotate(-1deg);
+    }
+
+    80%{
+        transform:
+            translateX(6px)
+            rotate(1deg);
+    }
+
+    100%{
+        transform:
+            translateX(0)
+            rotate(0);
+    }
+
+}
+
+.final-small{
+
+    margin-top:15px;
+
+    color:#ffd0e4;
+
+    max-width:600px;
+
+    line-height:1.7;
+}
+
+/* =========================================================
+   FLOATING HEART
+========================================================= */
+
+.heart{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    pointer-events:none;
+
+    z-index:30;
+
+    animation:
+        heartUp
+        linear forwards;
+
+}
+
+@keyframes heartUp{
+
+    from{
+
+        transform:
+            translateY(0)
+            rotate(0);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:1;
+    }
+
     to{
+
         transform:
             translateY(-110vh)
             rotate(360deg);
 
         opacity:0;
     }
+
 }
 
-
-/* =========================
-   RESPONSIVE HP
-========================= */
+/* =========================================================
+   MOBILE
+========================================================= */
 
 @media(max-width:700px){
 
-    .flower{
-        transform:scale(.75);
-        margin-top:-50px;
+    .login-container{
+        padding:22px 15px;
     }
 
-    .branch{
-        width:180px;
-        min-height:85px;
-        padding:6px;
+    .photo-code{
+        grid-template-columns:
+            repeat(2,1fr);
     }
 
-    .branch img{
-        width:52px;
-        height:65px;
+    .code-image{
+        height:130px;
     }
 
-    .branch-text{
-        font-size:10px;
+    .memory-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:12px;
     }
 
-    .branch-text strong{
-        font-size:12px;
+    .memory-card{
+        min-height:150px;
+        padding:12px;
     }
 
-    .branch:nth-child(1){
-        top:3%;
-        left:1%;
-    }
-
-    .branch:nth-child(2){
-        top:20%;
-        left:1%;
-    }
-
-    .branch:nth-child(3){
-        top:37%;
-        left:1%;
-    }
-
-    .branch:nth-child(4){
-        top:54%;
-        left:1%;
-    }
-
-    .branch:nth-child(5){
-        top:3%;
-        right:1%;
-    }
-
-    .branch:nth-child(6){
-        top:20%;
-        right:1%;
-    }
-
-    .branch:nth-child(7){
-        top:37%;
-        right:1%;
-    }
-
-    .branch:nth-child(8){
-        top:54%;
-        right:1%;
-    }
-
-    .branch:nth-child(9){
-        top:72%;
-        left:50%;
-        width:230px;
-    }
-
-    .page h1{
+    .memory-icon{
         font-size:42px;
     }
 
 }
+
+@media(max-width:430px){
+
+    .photo-code{
+        gap:10px;
+    }
+
+    .code-image{
+        height:115px;
+    }
+
+    .memory-grid{
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+}
+
 </style>
 </head>
+
 
 <body>
 
 
-<!-- =================================
-     MUSIK
-================================= -->
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
-<audio id="music" loop>
-    <source src="lagu.mp3" type="audio/mpeg">
-</audio>
+<div class="stars"></div>
 
+<div class="flower-bg">
 
-<!-- =================================
-     BINTANG
-================================= -->
-
-<div class="stars" id="stars"></div>
-
-
-<!-- =================================
-     HALAMAN PEMBUKA
-================================= -->
-
-<section class="page active" id="opening">
-
-    <div class="flower">
-
-        <div class="main-stem"></div>
-
-        <div class="bloom">
-
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="flower-center"></div>
-
-        </div>
-
+    <div class="bg-flower"
+    style="left:5%;animation-duration:13s;animation-delay:0s;">
+        🌸
     </div>
 
-    <h1 class="title">
+    <div class="bg-flower"
+    style="left:18%;animation-duration:17s;animation-delay:3s;">
+        🌷
+    </div>
+
+    <div class="bg-flower"
+    style="left:32%;animation-duration:15s;animation-delay:5s;">
+        🌹
+    </div>
+
+    <div class="bg-flower"
+    style="left:47%;animation-duration:19s;animation-delay:1s;">
+        🌺
+    </div>
+
+    <div class="bg-flower"
+    style="left:62%;animation-duration:14s;animation-delay:4s;">
+        🌸
+    </div>
+
+    <div class="bg-flower"
+    style="left:76%;animation-duration:18s;animation-delay:2s;">
+        🌷
+    </div>
+
+    <div class="bg-flower"
+    style="left:90%;animation-duration:16s;animation-delay:6s;">
+        🌹
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     LOGIN
+===================================================== -->
+
+<section
+id="loginPage"
+class="page active"
+>
+
+<div class="login-container">
+
+    <div class="date">
+        01 • OKTOBER • MY GIRL
+    </div>
+
+    <h1 class="login-title">
         MY GIRL ❤️
     </h1>
 
-    <p style="
-        margin-top:15px;
-        color:#ffd9e9;
-        font-size:18px;
-    ">
-        Ada satu bunga untuk seseorang
-        yang sangat spesial...
+    <p class="login-subtitle">
+        Hari kecil yang spesial untuk seseorang
+        yang sangat berarti bagiku 🌸
     </p>
 
-    <button onclick="startFlower()">
-        Buka Bunganya 🌸
+
+    <!-- BUNGA MEKAR -->
+
+    <div class="main-flower">
+
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <i></i>
+
+    </div>
+
+
+    <div class="code-title">
+
+        🔐 Pilih 4 foto rahasia
+        sesuai urutan yang benar ❤️
+
+    </div>
+
+
+    <!-- FOTO KODE -->
+
+    <div class="photo-code">
+
+
+        <div
+        class="code-image"
+        data-code="foto1"
+        onclick="chooseCode(this)"
+        >
+
+            <img src="foto1.jpg">
+
+            <div class="number">
+                1
+            </div>
+
+            <div class="selected-number"></div>
+
+        </div>
+
+
+        <div
+        class="code-image"
+        data-code="foto2"
+        onclick="chooseCode(this)"
+        >
+
+            <img src="foto2.jpg">
+
+            <div class="number">
+                2
+            </div>
+
+            <div class="selected-number"></div>
+
+        </div>
+
+
+        <div
+        class="code-image"
+        data-code="foto3"
+        onclick="chooseCode(this)"
+        >
+
+            <img src="foto3.jpg">
+
+            <div class="number">
+                3
+            </div>
+
+            <div class="selected-number"></div>
+
+        </div>
+
+
+        <div
+        class="code-image"
+        data-code="foto4"
+        onclick="chooseCode(this)"
+        >
+
+            <img src="foto4.jpg">
+
+            <div class="number">
+                4
+            </div>
+
+            <div class="selected-number"></div>
+
+        </div>
+
+
+        <div
+        class="code-image"
+        data-code="foto5"
+        onclick="chooseCode(this)"
+        >
+
+            <img src="foto5.jpg">
+
+            <div class="number">
+                5
+            </div>
+
+            <div class="selected-number"></div>
+
+        </div>
+
+
+        <div
+        class="code-image"
+        data-code="foto6"
+        onclick="chooseCode(this)"
+        >
+
+            <img src="foto6.jpg">
+
+            <div class="number">
+                6
+            </div>
+
+            <div class="selected-number"></div>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+    id="status"
+    class="status">
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =====================================================
+     MEMORY
+===================================================== -->
+
+<section
+id="memoryPage"
+class="page"
+>
+
+    <div class="memory-date">
+        🌸 01 OKTOBER 🌸
+    </div>
+
+    <h1 class="memory-title">
+        BUNGA KENANGAN KITA
+    </h1>
+
+    <p class="memory-subtitle">
+        9 bunga kecil untuk 9 alasan kenapa
+        kamu begitu berarti ❤️
+    </p>
+
+
+    <div class="memory-grid">
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(0)"
+        >
+
+            <div class="memory-icon">
+                🌸
+            </div>
+
+            <h3>
+                Pertama
+            </h3>
+
+            <p>
+                Awal dari semuanya
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(1)"
+        >
+
+            <div class="memory-icon">
+                🌷
+            </div>
+
+            <h3>
+                Senyummu
+            </h3>
+
+            <p>
+                Yang selalu aku suka
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(2)"
+        >
+
+            <div class="memory-icon">
+                🌹
+            </div>
+
+            <h3>
+                Favoritku
+            </h3>
+
+            <p>
+                Kamu tetap nomor satu
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(3)"
+        >
+
+            <div class="memory-icon">
+                🌺
+            </div>
+
+            <h3>
+                Moment
+            </h3>
+
+            <p>
+                Yang tidak terlupakan
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(4)"
+        >
+
+            <div class="memory-icon">
+                🌻
+            </div>
+
+            <h3>
+                Bahagia
+            </h3>
+
+            <p>
+                Saat bersama kamu
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(5)"
+        >
+
+            <div class="memory-icon">
+                🌼
+            </div>
+
+            <h3>
+                Sayang
+            </h3>
+
+            <p>
+                Yang tidak berubah
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(6)"
+        >
+
+            <div class="memory-icon">
+                💐
+            </div>
+
+            <h3>
+                Untukmu
+            </h3>
+
+            <p>
+                Hadiah kecil dariku
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(7)"
+        >
+
+            <div class="memory-icon">
+                🌸
+            </div>
+
+            <h3>
+                Selamanya
+            </h3>
+
+            <p>
+                Harapan kecilku
+            </p>
+
+        </div>
+
+
+        <div
+        class="memory-card"
+        onclick="openMemory(8)"
+        >
+
+            <div class="memory-icon">
+                ❤️
+            </div>
+
+            <h3>
+                Terakhir
+            </h3>
+
+            <p>
+                Buka kalau sudah siap
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <br><br>
+
+    <button onclick="openClosing()">
+        💌 BUKA PESAN TERAKHIR
     </button>
 
 </section>
 
 
-<!-- =================================
-     HALAMAN BUNGA 9 CABANG
-================================= -->
+<!-- =====================================================
+     MODAL
+===================================================== -->
 
-<section class="page" id="flowerPage">
+<div
+id="modal"
+class="modal"
+>
 
-    <!-- BUNGA UTAMA -->
+    <div class="modal-box">
 
-    <div class="flower">
+        <img
+        id="modalPhoto"
+        src="foto1.jpg"
+        >
 
-        <div class="main-stem"></div>
+        <h2
+        id="modalTitle">
+        </h2>
 
-        <div class="bloom">
+        <p
+        id="modalText">
+        </p>
 
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="flower-center"></div>
-
-        </div>
+        <button
+        onclick="closeMemory()"
+        >
+            Tutup ❤️
+        </button>
 
     </div>
 
+</div>
 
-    <h1 style="
-        font-size:35px;
-        color:#ff9bc9;
-        text-shadow:0 0 20px #ff3d91;
-    ">
-        9 Alasan Aku Sayang Kamu 🌸
+
+<!-- =====================================================
+     FINAL PAGE
+===================================================== -->
+
+<section
+id="closingPage"
+class="page final-page"
+>
+
+    <div class="final-flower">
+        🌸
+    </div>
+
+
+    <div class="final-date">
+        01 OKTOBER
+    </div>
+
+
+    <h1 class="final-title">
+        MY GIRL ❤️
     </h1>
 
 
-    <!-- =================================
-         9 CABANG
-    ================================= -->
-
-    <div class="branches">
-
-        <!-- 1 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/300/400">
-
-            <div class="branch-text">
-
-                <strong>🌸 Senyummu</strong>
-
-                Senyummu sederhana,
-                tapi selalu berhasil
-                membuat hariku lebih indah.
-
-            </div>
-
-        </div>
-
-
-        <!-- 2 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/301/400">
-
-            <div class="branch-text">
-
-                <strong>💕 Kenyamanan</strong>
-
-                Entah kenapa,
-                bersamamu selalu terasa
-                seperti berada di rumah.
-
-            </div>
-
-        </div>
-
-
-        <!-- 3 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/302/400">
-
-            <div class="branch-text">
-
-                <strong>🥺 Perhatianmu</strong>
-
-                Hal-hal kecil yang kamu lakukan
-                ternyata punya arti besar
-                buat aku.
-
-            </div>
-
-        </div>
-
-
-        <!-- 4 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/303/400">
-
-            <div class="branch-text">
-
-                <strong>🌷 Kehadiranmu</strong>
-
-                Tidak perlu melakukan apa-apa.
-                Cukup ada di sampingku,
-                itu sudah membuatku bahagia.
-
-            </div>
-
-        </div>
-
-
-        <!-- 5 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/304/400">
-
-            <div class="branch-text">
-
-                <strong>❤️ Hatimu</strong>
-
-                Ada banyak hal tentang dirimu
-                yang membuatku semakin
-                jatuh cinta.
-
-            </div>
-
-        </div>
-
-
-        <!-- 6 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/305/400">
-
-            <div class="branch-text">
-
-                <strong>✨ Caramu</strong>
-
-                Caramu berbicara,
-                tertawa, dan bercanda
-                selalu aku suka.
-
-            </div>
-
-        </div>
-
-
-        <!-- 7 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/306/400">
-
-            <div class="branch-text">
-
-                <strong>🌹 Kenangan</strong>
-
-                Setiap kenangan bersamamu
-                adalah sesuatu yang ingin
-                selalu aku simpan.
-
-            </div>
-
-        </div>
-
-
-        <!-- 8 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/307/400">
-
-            <div class="branch-text">
-
-                <strong>💖 Pilihanku</strong>
-
-                Dari sekian banyak orang,
-                aku senang bisa
-                menemukan kamu.
-
-            </div>
-
-        </div>
-
-
-        <!-- 9 -->
-
-        <div class="branch">
-
-            <img src="https://placecats.com/308/400">
-
-            <div class="branch-text">
-
-                <strong>🌸 Kamu</strong>
-
-                Dan alasan terakhir
-                sekaligus yang paling penting...
-
-                <br>
-
-                <b>Karena kamu adalah kamu. ❤️</b>
-
-            </div>
-
-        </div>
+    <div
+    id="shakeWord"
+    class="shake-word">
+
+        AKU SAYANG KAMU ❤️
 
     </div>
 
 
-    <button onclick="finishFlower()">
-        Buka pesan terakhir 💌
-    </button>
+    <p class="final-small">
 
-</section>
+        Di antara banyaknya hari dalam satu tahun,
+        ada satu hari yang ingin aku jadikan
+        sedikit lebih spesial.
+
+        <br><br>
+
+        <b>
+            1 OKTOBER — MY GIRL DAY 🌸
+        </b>
+
+        <br><br>
+
+        Semoga bunga-bunga kecil di halaman ini
+        mengingatkanmu bahwa selalu ada seseorang
+        yang menyimpan banyak cerita tentangmu
+        di dalam hatinya.
+
+    </p>
 
 
-<!-- =================================
-     PENUTUP
-================================= -->
-
-<section class="page" id="closing">
-
-    <div class="closing">
-
-        <h1>
-            Untuk My Girl 🌸
-        </h1>
-
-        <div class="shake-text">
-
-            Dari sembilan batang bunga ini,
-            <br>
-
-            sebenarnya cuma ada satu
-            hal yang ingin aku katakan...
-
-            <br><br>
-
-            <span>
-                AKU SAYANG KAMU ❤️
-            </span>
-
-            <br><br>
-
-            Jangan pergi jauh-jauh ya...
-
-            <br>
-
-            karena aku masih ingin
-            membuat banyak cerita
-            bersamamu. 🥺💕
-
-        </div>
-
-    </div>
+    <br>
 
     <button onclick="restart()">
-        🌸 Kocok Lagi Dari Awal
+        ❤️ LIHAT LAGI
     </button>
 
 </section>
+
+
+<!-- =====================================================
+     MUSIC
+===================================================== -->
+
+<audio
+id="music"
+src="lagu.mp3"
+loop>
+</audio>
 
 
 <script>
 
-/* =================================
-   BINTANG
-================================= */
+/* =========================================================
+   KODE FOTO
+========================================================= */
 
-for(let i=0;i<100;i++){
+const correctCode = [
+    "foto2",
+    "foto5",
+    "foto1",
+    "foto6"
+];
 
-    const star =
-        document.createElement("div");
+let enteredCode = [];
 
-    star.className="star";
 
-    star.style.left =
-        Math.random()*100+"%";
+/* =========================================================
+   PILIH FOTO
+========================================================= */
 
-    star.style.top =
-        Math.random()*100+"%";
+function chooseCode(element){
 
-    star.style.animationDelay =
-        Math.random()*3+"s";
+    const code =
+        element.dataset.code;
 
-    document
-        .getElementById("stars")
-        .appendChild(star);
+    if(
+        enteredCode.includes(code)
+    ){
+        return;
+    }
+
+    enteredCode.push(code);
+
+    element.classList.add(
+        "selected"
+    );
+
+    element.querySelector(
+        ".selected-number"
+    ).textContent =
+        enteredCode.length;
+
+
+    if(
+        enteredCode.length ===
+        correctCode.length
+    ){
+
+        checkCode();
+
+    }
+
 }
 
 
-/* =================================
+/* =========================================================
+   CEK KODE
+========================================================= */
+
+function checkCode(){
+
+    const benar =
+        enteredCode.every(
+            (value,index)=>
+            value === correctCode[index]
+        );
+
+
+    const status =
+        document.getElementById(
+            "status"
+        );
+
+
+    if(benar){
+
+        status.innerHTML = `
+
+            <div
+            style="
+            color:#ff91c5;
+            font-size:22px;
+            animation:containerAppear .7s;
+            "
+            >
+
+            🌸 KODE BENAR 🌸
+
+            <br><br>
+
+            Selamat datang
+            di dunia kecil kita ❤️
+
+            </div>
+
+        `;
+
+
+        startMusic();
+
+
+        setTimeout(()=>{
+
+            document
+            .getElementById(
+                "loginPage"
+            )
+            .classList.remove(
+                "active"
+            );
+
+
+            document
+            .getElementById(
+                "memoryPage"
+            )
+            .classList.add(
+                "active"
+            );
+
+        },1200);
+
+
+    }else{
+
+        status.innerHTML = `
+
+        <div class="wrong">
+
+            😾💢
+            KODE SALAH
+            💢😾
+
+            <br><br>
+
+            Tapi aku baik hati...
+
+            <br>
+
+            Aku kasih tahu
+            kode yang benar ❤️
+
+            <br><br>
+
+            <b>
+            URUTANNYA:
+            </b>
+
+            <div class="correct-code">
+
+                ${correctCode.map(
+                    (x,i)=>
+                    `<span>
+                    ${i+1}.
+                    FOTO ${x.replace("foto","")}
+                    </span>`
+                ).join("")}
+
+            </div>
+
+            <button
+            onclick="resetCode()"
+            >
+                🔄 COBA LAGI
+            </button>
+
+        </div>
+
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+function resetCode(){
+
+    enteredCode = [];
+
+    document
+    .querySelectorAll(
+        ".code-image"
+    )
+    .forEach(card=>{
+
+        card.classList.remove(
+            "selected"
+        );
+
+        card.querySelector(
+            ".selected-number"
+        ).textContent = "";
+
+    });
+
+
+    document.getElementById(
+        "status"
+    ).innerHTML = "";
+
+}
+
+
+/* =========================================================
    MUSIK
-================================= */
-
-const music =
-    document.getElementById("music");
-
+========================================================= */
 
 function startMusic(){
 
-    music.volume=.65;
+    const music =
+        document.getElementById(
+            "music"
+        );
+
+    music.volume=.7;
 
     music.play().catch(()=>{});
 
 }
 
 
-/* =================================
-   BUKA BUNGA
-================================= */
+/* =========================================================
+   9 KENANGAN
+========================================================= */
 
-function startFlower(){
+const memories = [
 
-    startMusic();
+    {
+        title:"🌸 Awal Cerita",
+        photo:"foto1.jpg",
+        text:
+        "Semua cerita yang indah selalu punya sebuah awal. Dan aku senang karena salah satu cerita itu adalah tentang kita."
+    },
 
-    document
-        .getElementById("opening")
-        .classList.remove("active");
+    {
+        title:"🌷 Senyummu",
+        photo:"foto2.jpg",
+        text:
+        "Salah satu hal sederhana yang paling aku suka adalah melihat senyummu."
+    },
 
-    document
-        .getElementById("flowerPage")
-        .classList.add("active");
+    {
+        title:"🌹 Favoritku",
+        photo:"foto3.jpg",
+        text:
+        "Banyak hal yang bisa menjadi favoritku, tapi kamu tetap punya tempat yang berbeda."
+    },
 
-    revealBranches();
+    {
+        title:"🌺 Moment Kita",
+        photo:"foto4.jpg",
+        text:
+        "Ada beberapa moment yang mungkin terlihat biasa, tetapi menjadi sangat berarti ketika dilakukan bersamamu."
+    },
+
+    {
+        title:"🌻 Bahagia",
+        photo:"foto5.jpg",
+        text:
+        "Bahagia ternyata tidak selalu tentang sesuatu yang besar. Kadang cukup dengan seseorang yang kita sayangi."
+    },
+
+    {
+        title:"🌼 Kesayanganku",
+        photo:"foto6.jpg",
+        text:
+        "Aku ingin kamu tahu bahwa kamu adalah seseorang yang sangat berarti bagiku."
+    },
+
+    {
+        title:"💐 Untukmu",
+        photo:"foto1.jpg",
+        text:
+        "Website kecil ini adalah salah satu caraku memberikan sesuatu yang berbeda untukmu."
+    },
+
+    {
+        title:"🌸 Selamanya",
+        photo:"foto2.jpg",
+        text:
+        "Semoga masih ada banyak cerita yang bisa kita buat setelah hari ini."
+    },
+
+    {
+        title:"❤️ Pesan Terakhir",
+        photo:"foto3.jpg",
+        text:
+        "Kalau suatu hari kamu membuka halaman ini lagi, ingatlah bahwa pernah ada seseorang yang membuat halaman ini khusus untukmu."
+    }
+
+];
+
+
+/* =========================================================
+   OPEN MEMORY
+========================================================= */
+
+function openMemory(index){
+
+    const data =
+        memories[index];
+
+
+    document.getElementById(
+        "modalPhoto"
+    ).src =
+        data.photo;
+
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        data.title;
+
+
+    document.getElementById(
+        "modalText"
+    ).textContent =
+        data.text;
+
+
+    document.getElementById(
+        "modal"
+    ).classList.add(
+        "active"
+    );
 
 }
 
 
-/* =================================
-   9 CABANG MUNCUL BERGANTIAN
-================================= */
+/* =========================================================
+   CLOSE
+========================================================= */
 
-function revealBranches(){
+function closeMemory(){
 
-    const branches =
-        document.querySelectorAll(".branch");
-
-    branches.forEach((branch,index)=>{
-
-        setTimeout(()=>{
-
-            branch.classList.add("show");
-
-        },700+(index*650));
-
-    });
+    document.getElementById(
+        "modal"
+    ).classList.remove(
+        "active"
+    );
 
 }
 
 
-/* =================================
-   PENUTUP
-================================= */
+/* =========================================================
+   KATA-KATA SHAKE
+========================================================= */
 
-function finishFlower(){
+const shakeWords = [
 
-    document
-        .getElementById("flowerPage")
-        .classList.remove("active");
+    "AKU SAYANG KAMU ❤️",
 
-    document
-        .getElementById("closing")
-        .classList.add("active");
+    "JANGAN TINGGALIN AKU 🥺",
+
+    "KAMU FAVORITKU 💕",
+
+    "KAMU SELALU DI HATIKU 🌸",
+
+    "TETAP BERSAMAKU YA ❤️",
+
+    "KAMU ADALAH RUMAHKU 🏡",
+
+    "AKU MAU TERUS BERSAMAMU 💍",
+
+    "MY GIRL, I LOVE YOU ❤️"
+
+];
+
+let shakeIndex=0;
+
+let shakeTimer;
+
+
+/* =========================================================
+   FINAL
+========================================================= */
+
+function openClosing(){
+
+    document.getElementById(
+        "memoryPage"
+    ).classList.remove(
+        "active"
+    );
+
+
+    document.getElementById(
+        "closingPage"
+    ).classList.add(
+        "active"
+    );
+
+
+    changeShakeWord();
+
+
+    clearInterval(
+        shakeTimer
+    );
+
+
+    shakeTimer =
+        setInterval(
+            changeShakeWord,
+            2500
+        );
 
 }
 
 
-/* =================================
-   ULANG
-================================= */
+/* =========================================================
+   CHANGE WORD
+========================================================= */
+
+function changeShakeWord(){
+
+    const word =
+        document.getElementById(
+            "shakeWord"
+        );
+
+
+    word.style.animation="none";
+
+    void word.offsetWidth;
+
+    word.style.animation =
+        "shake .4s infinite";
+
+
+    word.textContent =
+        shakeWords[shakeIndex];
+
+
+    shakeIndex++;
+
+
+    if(
+        shakeIndex >=
+        shakeWords.length
+    ){
+
+        shakeIndex=0;
+
+    }
+
+}
+
+
+/* =========================================================
+   RESTART
+========================================================= */
 
 function restart(){
 
-    document
-        .getElementById("closing")
-        .classList.remove("active");
-
-    document
-        .getElementById("opening")
-        .classList.add("active");
-
-    document
-        .querySelectorAll(".branch")
-        .forEach(branch=>{
-            branch.classList.remove("show");
-        });
+    location.reload();
 
 }
 
 
-/* =================================
-   HATI TERBANG
-================================= */
+/* =========================================================
+   FLOATING HEART
+========================================================= */
 
 setInterval(()=>{
 
     const heart =
-        document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
     heart.className="heart";
+
 
     const list=[
         "❤️",
@@ -1219,29 +2232,102 @@ setInterval(()=>{
         "💗",
         "💖",
         "🌸",
-        "🌷"
+        "🌷",
+        "🌹"
     ];
 
-    heart.innerHTML =
+
+    heart.textContent =
         list[
             Math.floor(
-                Math.random()*list.length
+                Math.random()*
+                list.length
             )
         ];
 
+
     heart.style.left =
-        Math.random()*100+"%";
+        Math.random()*100+
+        "vw";
+
+
+    heart.style.fontSize =
+        (15+
+        Math.random()*25)+
+        "px";
+
 
     heart.style.animationDuration =
-        (4+Math.random()*5)+"s";
+        (6+
+        Math.random()*5)+
+        "s";
 
-    document.body.appendChild(heart);
+
+    document.body.appendChild(
+        heart
+    );
+
 
     setTimeout(()=>{
-        heart.remove();
-    },9000);
 
-},450);
+        heart.remove();
+
+    },11000);
+
+},650);
+
+
+/* =========================================================
+   FALLING PETALS
+========================================================= */
+
+setInterval(()=>{
+
+    const petal =
+        document.createElement(
+            "div"
+        );
+
+    petal.className="petal";
+
+    petal.textContent =
+        ["🌸","🌷","💮","🌺"]
+        [
+            Math.floor(
+                Math.random()*4
+            )
+        ];
+
+
+    petal.style.left =
+        Math.random()*100+
+        "vw";
+
+
+    petal.style.fontSize =
+        (15+
+        Math.random()*20)+
+        "px";
+
+
+    petal.style.animationDuration =
+        (6+
+        Math.random()*7)+
+        "s";
+
+
+    document.body.appendChild(
+        petal
+    );
+
+
+    setTimeout(()=>{
+
+        petal.remove();
+
+    },14000);
+
+},900);
 
 </script>
 
