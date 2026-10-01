@@ -9,8 +9,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>1 OKTOBER — MY GIRL ❤️</title>
-
+<title>01 OKTOBER — MY GIRL ❤️</title>
 
 <style>
 
@@ -29,34 +28,28 @@ html{
 }
 
 body{
-
     font-family:
     Arial,
     Helvetica,
     sans-serif;
 
     background:#050006;
-
     color:white;
 
     overflow:hidden;
 }
-
 
 /* =====================================================
    BACKGROUND GLOW
 ===================================================== */
 
 body::before{
-
     content:"";
 
     position:fixed;
-
     inset:-50%;
 
     background:
-
     radial-gradient(
         circle at 20% 20%,
         rgba(255,0,120,.25),
@@ -85,57 +78,43 @@ body::before{
     z-index:-20;
 }
 
-
 @keyframes backgroundMove{
 
     0%{
-
         transform:
         translate(0,0)
         scale(1);
-
     }
 
     50%{
-
         transform:
         translate(4%,3%)
         scale(1.08);
-
     }
 
     100%{
-
         transform:
         translate(-4%,-3%)
         scale(1);
-
     }
-
 }
 
-
 /* =====================================================
-   BINTANG
+   STARS
 ===================================================== */
 
 .stars{
-
     position:fixed;
-
     inset:0;
-
     z-index:-15;
 
     background-image:
-
     radial-gradient(
         white 1px,
         transparent 1px
     );
 
-    background-size:
-    45px 45px;
+    background-size:45px 45px;
 
     opacity:.20;
 
@@ -146,42 +125,32 @@ body::before{
     infinite;
 }
 
-
 @keyframes starsMove{
 
     from{
-        transform:
-        translateY(0);
+        transform:translateY(0);
     }
 
     to{
-        transform:
-        translateY(45px);
+        transform:translateY(45px);
     }
-
 }
 
-
 /* =====================================================
-   BACKGROUND BUNGA
+   BACKGROUND FLOWERS
 ===================================================== */
 
 .flower-background{
-
     position:fixed;
-
     inset:0;
 
     overflow:hidden;
-
     pointer-events:none;
 
     z-index:-10;
 }
 
-
 .bg-flower{
-
     position:absolute;
 
     bottom:-80px;
@@ -202,11 +171,9 @@ body::before{
     infinite;
 }
 
-
 @keyframes flowerUp{
 
     0%{
-
         transform:
         translateY(110vh)
         translateX(0)
@@ -214,7 +181,6 @@ body::before{
         scale(.6);
 
         opacity:0;
-
     }
 
     10%{
@@ -222,17 +188,14 @@ body::before{
     }
 
     50%{
-
         transform:
         translateY(50vh)
         translateX(60px)
         rotate(180deg)
         scale(1);
-
     }
 
     100%{
-
         transform:
         translateY(-120vh)
         translateX(-70px)
@@ -240,79 +203,14 @@ body::before{
         scale(.8);
 
         opacity:0;
-
     }
-
 }
-
 
 /* =====================================================
-   PETAL
-===================================================== */
-
-.petal{
-
-    position:fixed;
-
-    top:-50px;
-
-    pointer-events:none;
-
-    z-index:30;
-
-    animation:
-    petalFall
-    linear
-    forwards;
-}
-
-
-@keyframes petalFall{
-
-    0%{
-
-        transform:
-        translateY(0)
-        translateX(0)
-        rotate(0);
-
-        opacity:0;
-
-    }
-
-    10%{
-        opacity:.8;
-    }
-
-    50%{
-
-        transform:
-        translateY(50vh)
-        translateX(80px)
-        rotate(180deg);
-
-    }
-
-    100%{
-
-        transform:
-        translateY(110vh)
-        translateX(-100px)
-        rotate(360deg);
-
-        opacity:0;
-
-    }
-
-}
-
-
-/* =====================================================
-   HEART
+   FLOATING HEART
 ===================================================== */
 
 .heart{
-
     position:fixed;
 
     bottom:-40px;
@@ -327,17 +225,14 @@ body::before{
     forwards;
 }
 
-
 @keyframes heartFloat{
 
     0%{
-
         transform:
         translateY(0)
         rotate(0);
 
         opacity:0;
-
     }
 
     10%{
@@ -345,32 +240,76 @@ body::before{
     }
 
     100%{
-
         transform:
         translateY(-110vh)
         rotate(360deg);
 
         opacity:0;
-
     }
-
 }
 
+/* =====================================================
+   FALLING PETAL
+===================================================== */
+
+.petal{
+    position:fixed;
+
+    top:-50px;
+
+    pointer-events:none;
+
+    z-index:30;
+
+    animation:
+    petalFall
+    linear
+    forwards;
+}
+
+@keyframes petalFall{
+
+    0%{
+        transform:
+        translateY(0)
+        translateX(0)
+        rotate(0);
+
+        opacity:0;
+    }
+
+    10%{
+        opacity:.8;
+    }
+
+    50%{
+        transform:
+        translateY(50vh)
+        translateX(80px)
+        rotate(180deg);
+    }
+
+    100%{
+        transform:
+        translateY(110vh)
+        translateX(-100px)
+        rotate(360deg);
+
+        opacity:0;
+    }
+}
 
 /* =====================================================
    PAGE
 ===================================================== */
 
 .page{
-
     display:none;
 
     width:100%;
-
     height:100vh;
 
-    padding:
-    30px 20px;
+    padding:30px 20px;
 
     overflow:auto;
 
@@ -379,23 +318,18 @@ body::before{
     scrollbar-width:none;
 }
 
-
 .page::-webkit-scrollbar{
     display:none;
 }
 
-
 .page.active{
-
     display:flex;
 
     flex-direction:column;
 
     justify-content:center;
-
     align-items:center;
 }
-
 
 /* =====================================================
    LOGIN
@@ -403,10 +337,7 @@ body::before{
 
 .login-box{
 
-    width:min(
-        950px,
-        96%
-    );
+    width:min(950px,96%);
 
     padding:35px;
 
@@ -436,31 +367,24 @@ body::before{
     ease;
 }
 
-
 @keyframes boxAppear{
 
     from{
-
         opacity:0;
 
         transform:
         translateY(40px)
         scale(.95);
-
     }
 
     to{
-
         opacity:1;
 
         transform:
         translateY(0)
         scale(1);
-
     }
-
 }
-
 
 /* =====================================================
    DATE
@@ -485,7 +409,6 @@ body::before{
     0 0 20px
     #ff1685;
 }
-
 
 /* =====================================================
    TITLE
@@ -516,7 +439,6 @@ body::before{
     margin-bottom:10px;
 }
 
-
 .login-subtitle{
 
     color:#ffd3e8;
@@ -526,9 +448,8 @@ body::before{
     line-height:1.6;
 }
 
-
 /* =====================================================
-   BUNGA UTAMA
+   MAIN FLOWER
 ===================================================== */
 
 .main-flower{
@@ -536,7 +457,6 @@ body::before{
     position:relative;
 
     width:130px;
-
     height:130px;
 
     margin:
@@ -549,34 +469,26 @@ body::before{
     infinite;
 }
 
-
 @keyframes mainFlowerMove{
 
     0%,100%{
-
         transform:
         rotate(-5deg)
         scale(.95);
-
     }
 
     50%{
-
         transform:
         rotate(5deg)
         scale(1.08);
-
     }
-
 }
-
 
 .main-flower span{
 
     position:absolute;
 
     width:60px;
-
     height:60px;
 
     border-radius:50%;
@@ -593,51 +505,36 @@ body::before{
     #ff2389;
 }
 
-
 .main-flower span:nth-child(1){
-
     top:0;
     left:35px;
-
 }
-
 
 .main-flower span:nth-child(2){
-
     top:35px;
     left:0;
-
 }
-
 
 .main-flower span:nth-child(3){
-
     top:35px;
     right:0;
-
 }
-
 
 .main-flower span:nth-child(4){
-
     bottom:0;
     left:35px;
-
 }
-
 
 .main-flower i{
 
     position:absolute;
 
     width:42px;
-
     height:42px;
 
     border-radius:50%;
 
     top:44px;
-
     left:44px;
 
     background:#ffd84d;
@@ -645,12 +542,10 @@ body::before{
     box-shadow:
     0 0 25px
     #ffd84d;
-
 }
 
-
 /* =====================================================
-   CODE
+   CODE PHOTO
 ===================================================== */
 
 .code-title{
@@ -662,13 +557,9 @@ body::before{
     margin-bottom:20px;
 }
 
-
 .photo-code{
 
-    width:min(
-        700px,
-        100%
-    );
+    width:min(700px,100%);
 
     margin:auto;
 
@@ -679,7 +570,6 @@ body::before{
 
     gap:15px;
 }
-
 
 .code-image{
 
@@ -704,18 +594,15 @@ body::before{
     rgba(255,30,130,.3);
 }
 
-
 .code-image img{
 
     width:100%;
-
     height:100%;
 
     object-fit:cover;
 
     transition:.5s;
 }
-
 
 .code-image:hover{
 
@@ -728,13 +615,9 @@ body::before{
     #ff2188;
 }
 
-
 .code-image:hover img{
-
-    transform:
-    scale(1.1);
+    transform:scale(1.1);
 }
-
 
 .code-image.selected{
 
@@ -745,27 +628,22 @@ body::before{
     0 0 40px
     #ff238b;
 
-    transform:
-    scale(1.05);
+    transform:scale(1.05);
 }
-
 
 .number{
 
     position:absolute;
 
     top:8px;
-
     right:8px;
 
     width:30px;
-
     height:30px;
 
     display:flex;
 
     justify-content:center;
-
     align-items:center;
 
     border-radius:50%;
@@ -775,13 +653,11 @@ body::before{
     font-weight:bold;
 }
 
-
 .selected-number{
 
     position:absolute;
 
     bottom:8px;
-
     left:8px;
 
     padding:
@@ -798,13 +674,10 @@ body::before{
     display:none;
 }
 
-
 .code-image.selected
 .selected-number{
-
     display:block;
 }
-
 
 /* =====================================================
    STATUS
@@ -816,7 +689,6 @@ body::before{
 
     margin-top:20px;
 }
-
 
 .wrong{
 
@@ -830,26 +702,20 @@ body::before{
     infinite;
 }
 
-
 @keyframes wrongShake{
 
     0%,100%{
-        transform:
-        translateX(0);
+        transform:translateX(0);
     }
 
     25%{
-        transform:
-        translateX(-8px);
+        transform:translateX(-8px);
     }
 
     75%{
-        transform:
-        translateX(8px);
+        transform:translateX(8px);
     }
-
 }
-
 
 .correct-code{
 
@@ -864,7 +730,6 @@ body::before{
     margin:15px;
 }
 
-
 .correct-code span{
 
     background:#ff197e;
@@ -874,7 +739,6 @@ body::before{
 
     border-radius:20px;
 }
-
 
 /* =====================================================
    BUTTON
@@ -911,17 +775,14 @@ button{
     transition:.3s;
 }
 
-
 button:hover{
 
-    transform:
-    scale(1.08);
+    transform:scale(1.08);
 
     box-shadow:
     0 0 35px
     #ff238b;
 }
-
 
 /* =====================================================
    MEMORY
@@ -935,7 +796,6 @@ button:hover{
 
     margin-bottom:8px;
 }
-
 
 .memory-title{
 
@@ -955,7 +815,6 @@ button:hover{
     margin-bottom:10px;
 }
 
-
 .memory-subtitle{
 
     color:#ffd0e5;
@@ -963,13 +822,9 @@ button:hover{
     margin-bottom:30px;
 }
 
-
 .memory-grid{
 
-    width:min(
-        1050px,
-        95%
-    );
+    width:min(1050px,95%);
 
     display:grid;
 
@@ -978,7 +833,6 @@ button:hover{
 
     gap:18px;
 }
-
 
 .memory-card{
 
@@ -1006,15 +860,12 @@ button:hover{
     flex-direction:column;
 
     justify-content:center;
-
     align-items:center;
 
     transition:.4s;
 
-    backdrop-filter:
-    blur(10px);
+    backdrop-filter:blur(10px);
 }
-
 
 .memory-card:hover{
 
@@ -1027,7 +878,6 @@ button:hover{
     0 0 35px
     #ff2389;
 }
-
 
 .memory-icon{
 
@@ -1042,26 +892,18 @@ button:hover{
     infinite;
 }
 
-
 @keyframes flowerSway{
 
     0%,100%{
-
-        transform:
-        rotate(-5deg);
-
+        transform:rotate(-5deg);
     }
 
     50%{
-
         transform:
         rotate(5deg)
         translateY(-6px);
-
     }
-
 }
-
 
 .memory-card h3{
 
@@ -1070,14 +912,12 @@ button:hover{
     margin-bottom:5px;
 }
 
-
 .memory-card p{
 
     color:#ffd8e8;
 
     font-size:13px;
 }
-
 
 /* =====================================================
    MODAL
@@ -1095,7 +935,6 @@ button:hover{
     display:none;
 
     justify-content:center;
-
     align-items:center;
 
     padding:20px;
@@ -1103,18 +942,13 @@ button:hover{
     z-index:100;
 }
 
-
 .modal.active{
     display:flex;
 }
 
-
 .modal-box{
 
-    width:min(
-        520px,
-        95%
-    );
+    width:min(520px,95%);
 
     max-height:90vh;
 
@@ -1145,31 +979,24 @@ button:hover{
     ease;
 }
 
-
 @keyframes modalPop{
 
     from{
-
         transform:
         scale(.5)
         rotate(-5deg);
 
         opacity:0;
-
     }
 
     to{
-
         transform:
         scale(1)
         rotate(0);
 
         opacity:1;
-
     }
-
 }
-
 
 .modal-box img{
 
@@ -1184,14 +1011,12 @@ button:hover{
     margin-bottom:15px;
 }
 
-
 .modal-box h2{
 
     color:#ff87be;
 
     margin-bottom:12px;
 }
-
 
 .modal-box p{
 
@@ -1201,7 +1026,6 @@ button:hover{
 
     margin-bottom:20px;
 }
-
 
 /* =====================================================
    FINAL SLIDE
@@ -1213,7 +1037,6 @@ button:hover{
 
     overflow:hidden;
 }
-
 
 .final-flower{
 
@@ -1237,27 +1060,20 @@ button:hover{
     );
 }
 
-
 @keyframes finalFlower{
 
     0%,100%{
-
         transform:
         scale(.9)
         rotate(-6deg);
-
     }
 
     50%{
-
         transform:
         scale(1.12)
         rotate(6deg);
-
     }
-
 }
-
 
 .final-date{
 
@@ -1270,7 +1086,6 @@ button:hover{
     margin-bottom:8px;
 }
 
-
 .slide-number{
 
     color:#ffcadd;
@@ -1279,7 +1094,6 @@ button:hover{
 
     margin-bottom:10px;
 }
-
 
 .final-title{
 
@@ -1301,7 +1115,6 @@ button:hover{
     0 0 70px
     #ff1685;
 }
-
 
 .shake-word{
 
@@ -1329,7 +1142,6 @@ button:hover{
     .45s
     infinite;
 }
-
 
 @keyframes shakeWord{
 
@@ -1368,16 +1180,11 @@ button:hover{
         translateX(0)
         rotate(0);
     }
-
 }
-
 
 .final-text{
 
-    width:min(
-        650px,
-        90%
-    );
+    width:min(650px,90%);
 
     margin-top:20px;
 
@@ -1387,11 +1194,6 @@ button:hover{
 
     font-size:16px;
 }
-
-
-/* =====================================================
-   FINAL BUTTON
-===================================================== */
 
 .final-buttons{
 
@@ -1404,17 +1206,14 @@ button:hover{
     margin-top:25px;
 }
 
-
 .final-buttons button{
 
     min-width:60px;
-
     min-height:45px;
 }
 
-
 /* =====================================================
-   DOT
+   DOTS
 ===================================================== */
 
 .slide-dots{
@@ -1428,11 +1227,9 @@ button:hover{
     margin-top:20px;
 }
 
-
 .slide-dot{
 
     width:9px;
-
     height:9px;
 
     border-radius:50%;
@@ -1444,7 +1241,6 @@ button:hover{
 
     cursor:pointer;
 }
-
 
 .slide-dot.active{
 
@@ -1459,44 +1255,126 @@ button:hover{
     #ff1685;
 }
 
-
 /* =====================================================
-   SLIDE ENTER
+   FOTO PENUTUP
 ===================================================== */
 
-.slide-enter{
+#lastPhoto{
+
+    width:min(650px,95%);
 
     animation:
-    slideEnter
-    .6s
+    closingAppear
+    1.2s
     ease;
 }
 
+.closing-title{
 
-@keyframes slideEnter{
+    font-size:
+    clamp(
+        38px,
+        8vw,
+        70px
+    );
+
+    color:#ff91c7;
+
+    text-shadow:
+    0 0 15px #ff1685,
+    0 0 40px #ff1685;
+
+    margin-bottom:20px;
+}
+
+.closing-photo{
+
+    width:min(450px,90vw);
+
+    margin:0 auto 25px;
+
+    padding:9px;
+
+    border-radius:30px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff1685,
+        #ff8ac4,
+        white,
+        #ff1685
+    );
+
+    box-shadow:
+    0 0 30px #ff1685,
+    0 0 70px rgba(255,20,130,.5);
+
+    animation:
+    closingPhoto
+    2.5s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+.closing-photo img{
+
+    width:100%;
+
+    height:min(500px,55vh);
+
+    object-fit:cover;
+
+    display:block;
+
+    border-radius:22px;
+}
+
+.closing-text{
+
+    width:min(650px,90%);
+
+    margin:10px auto 25px;
+
+    color:#ffe0ed;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+@keyframes closingPhoto{
 
     from{
-
-        opacity:0;
-
         transform:
-        translateX(80px)
-        scale(.9);
-
+        scale(.97)
+        rotate(-1deg);
     }
 
     to{
-
-        opacity:1;
-
         transform:
-        translateX(0)
-        scale(1);
-
+        scale(1.03)
+        rotate(1deg);
     }
-
 }
 
+@keyframes closingAppear{
+
+    from{
+        opacity:0;
+        transform:
+        translateY(40px)
+        scale(.9);
+    }
+
+    to{
+        opacity:1;
+        transform:
+        translateY(0)
+        scale(1);
+    }
+}
 
 /* =====================================================
    MOBILE
@@ -1505,80 +1383,65 @@ button:hover{
 @media(max-width:700px){
 
     .login-box{
-
-        padding:
-        25px 15px;
+        padding:25px 15px;
     }
 
-
     .photo-code{
-
         grid-template-columns:
         repeat(2,1fr);
 
         gap:10px;
     }
 
-
     .code-image{
-
         height:125px;
     }
 
-
     .memory-grid{
-
         grid-template-columns:
         repeat(2,1fr);
 
         gap:12px;
     }
 
-
     .memory-card{
-
         min-height:145px;
-
         padding:12px;
     }
 
-
     .memory-icon{
-
         font-size:42px;
     }
 
+    .closing-photo img{
+        height:430px;
+    }
 }
-
 
 @media(max-width:430px){
 
     .login-title{
-
         font-size:42px;
     }
 
-
     .code-image{
-
         height:110px;
     }
 
-
     .memory-card h3{
-
         font-size:14px;
     }
 
+    .closing-photo img{
+        height:380px;
+    }
 }
 
 </style>
 
 </head>
 
-
 <body>
-
 
 <!-- =====================================================
      BACKGROUND
@@ -1586,91 +1449,48 @@ button:hover{
 
 <div class="stars"></div>
 
-
 <div class="flower-background">
 
-    <div
-    class="bg-flower"
-    style="
-    left:3%;
-    animation-duration:14s;
-    animation-delay:0s;
-    ">
+    <div class="bg-flower"
+    style="left:3%;animation-duration:14s;animation-delay:0s;">
         🌸
     </div>
 
-
-    <div
-    class="bg-flower"
-    style="
-    left:17%;
-    animation-duration:18s;
-    animation-delay:3s;
-    ">
+    <div class="bg-flower"
+    style="left:17%;animation-duration:18s;animation-delay:3s;">
         🌷
     </div>
 
-
-    <div
-    class="bg-flower"
-    style="
-    left:31%;
-    animation-duration:15s;
-    animation-delay:6s;
-    ">
+    <div class="bg-flower"
+    style="left:31%;animation-duration:15s;animation-delay:6s;">
         🌹
     </div>
 
-
-    <div
-    class="bg-flower"
-    style="
-    left:46%;
-    animation-duration:20s;
-    animation-delay:2s;
-    ">
+    <div class="bg-flower"
+    style="left:46%;animation-duration:20s;animation-delay:2s;">
         🌺
     </div>
 
-
-    <div
-    class="bg-flower"
-    style="
-    left:61%;
-    animation-duration:16s;
-    animation-delay:5s;
-    ">
+    <div class="bg-flower"
+    style="left:61%;animation-duration:16s;animation-delay:5s;">
         🌸
     </div>
 
-
-    <div
-    class="bg-flower"
-    style="
-    left:76%;
-    animation-duration:19s;
-    animation-delay:1s;
-    ">
+    <div class="bg-flower"
+    style="left:76%;animation-duration:19s;animation-delay:1s;">
         🌷
     </div>
 
-
-    <div
-    class="bg-flower"
-    style="
-    left:91%;
-    animation-duration:17s;
-    animation-delay:4s;
-    ">
+    <div class="bg-flower"
+    style="left:91%;animation-duration:17s;animation-delay:4s;">
         🌹
     </div>
 
 </div>
 
 
-
 <!-- =====================================================
-     LOGIN PAGE
+     LOGIN
 ===================================================== -->
 
 <section
@@ -1678,33 +1498,20 @@ id="loginPage"
 class="page active"
 >
 
-
 <div class="login-box">
 
-
     <div class="date">
-
         01 • OKTOBER • MY GIRL
-
     </div>
 
-
     <h1 class="login-title">
-
         MY GIRL ❤️
-
     </h1>
 
-
     <p class="login-subtitle">
-
         Hari kecil untuk seseorang
         yang sangat berarti bagiku 🌸
-
     </p>
-
-
-    <!-- BUNGA -->
 
     <div class="main-flower">
 
@@ -1717,20 +1524,12 @@ class="page active"
 
     </div>
 
-
     <div class="code-title">
-
         🔐 Pilih 4 foto sesuai
         urutan kode rahasia ❤️
-
     </div>
 
-
-    <!-- FOTO KODE -->
-
-
     <div class="photo-code">
-
 
         <div
         class="code-image"
@@ -1738,7 +1537,8 @@ class="page active"
         onclick="chooseCode(this)"
         >
 
-            <img src="foto1.jpg">
+            <img src="foto1.jpg"
+            alt="Foto 1">
 
             <div class="number">
                 1
@@ -1749,14 +1549,14 @@ class="page active"
         </div>
 
 
-
         <div
         class="code-image"
         data-code="foto2"
         onclick="chooseCode(this)"
         >
 
-            <img src="foto2.jpg">
+            <img src="foto2.jpg"
+            alt="Foto 2">
 
             <div class="number">
                 2
@@ -1767,14 +1567,14 @@ class="page active"
         </div>
 
 
-
         <div
         class="code-image"
         data-code="foto3"
         onclick="chooseCode(this)"
         >
 
-            <img src="foto3.jpg">
+            <img src="foto3.jpg"
+            alt="Foto 3">
 
             <div class="number">
                 3
@@ -1785,14 +1585,14 @@ class="page active"
         </div>
 
 
-
         <div
         class="code-image"
         data-code="foto4"
         onclick="chooseCode(this)"
         >
 
-            <img src="foto4.jpg">
+            <img src="foto4.jpg"
+            alt="Foto 4">
 
             <div class="number">
                 4
@@ -1803,14 +1603,14 @@ class="page active"
         </div>
 
 
-
         <div
         class="code-image"
         data-code="foto5"
         onclick="chooseCode(this)"
         >
 
-            <img src="foto5.jpg">
+            <img src="foto5.jpg"
+            alt="Foto 5">
 
             <div class="number">
                 5
@@ -1821,14 +1621,14 @@ class="page active"
         </div>
 
 
-
         <div
         class="code-image"
         data-code="foto6"
         onclick="chooseCode(this)"
         >
 
-            <img src="foto6.jpg">
+            <img src="foto6.jpg"
+            alt="Foto 6">
 
             <div class="number">
                 6
@@ -1838,20 +1638,16 @@ class="page active"
 
         </div>
 
-
     </div>
-
 
     <div
     id="status"
     class="status">
     </div>
 
-
 </div>
 
 </section>
-
 
 
 <!-- =====================================================
@@ -1863,37 +1659,25 @@ id="memoryPage"
 class="page"
 >
 
-
     <div class="memory-date">
-
         🌸 01 OKTOBER 🌸
-
     </div>
 
-
     <h1 class="memory-title">
-
         BUNGA KENANGAN KITA
-
     </h1>
 
-
     <p class="memory-subtitle">
-
         Klik setiap bunga untuk membuka
         cerita kecil kita ❤️
-
     </p>
 
-
     <div class="memory-grid">
-
 
         <div
         class="memory-card"
         onclick="openMemory(0)"
         >
-
             <div class="memory-icon">
                 🌸
             </div>
@@ -1905,16 +1689,13 @@ class="page"
             <p>
                 Awal dari semuanya
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(1)"
         >
-
             <div class="memory-icon">
                 🌷
             </div>
@@ -1926,16 +1707,13 @@ class="page"
             <p>
                 Yang selalu aku suka
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(2)"
         >
-
             <div class="memory-icon">
                 🌹
             </div>
@@ -1947,16 +1725,13 @@ class="page"
             <p>
                 Kamu nomor satu
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(3)"
         >
-
             <div class="memory-icon">
                 🌺
             </div>
@@ -1968,16 +1743,13 @@ class="page"
             <p>
                 Tidak terlupakan
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(4)"
         >
-
             <div class="memory-icon">
                 🌻
             </div>
@@ -1989,16 +1761,13 @@ class="page"
             <p>
                 Saat bersama kamu
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(5)"
         >
-
             <div class="memory-icon">
                 🌼
             </div>
@@ -2010,16 +1779,13 @@ class="page"
             <p>
                 Kamu yang aku pilih
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(6)"
         >
-
             <div class="memory-icon">
                 💐
             </div>
@@ -2031,16 +1797,13 @@ class="page"
             <p>
                 Hadiah kecil dariku
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(7)"
         >
-
             <div class="memory-icon">
                 🌸
             </div>
@@ -2052,16 +1815,13 @@ class="page"
             <p>
                 Harapan kecilku
             </p>
-
         </div>
-
 
 
         <div
         class="memory-card"
         onclick="openMemory(8)"
         >
-
             <div class="memory-icon">
                 ❤️
             </div>
@@ -2073,31 +1833,21 @@ class="page"
             <p>
                 Buka yang terakhir
             </p>
-
         </div>
-
 
     </div>
 
-
     <br>
 
-
-    <button
-    onclick="openClosing()"
-    >
-
+    <button onclick="openClosing()">
         💌 BUKA PESAN TERAKHIR
-
     </button>
-
 
 </section>
 
 
-
 <!-- =====================================================
-     MODAL FOTO
+     MODAL MEMORY
 ===================================================== -->
 
 <div
@@ -2105,43 +1855,33 @@ id="modal"
 class="modal"
 >
 
-
     <div class="modal-box">
-
 
         <img
         id="modalPhoto"
         src="foto1.jpg"
+        alt="Foto kenangan"
         >
-
 
         <h2
         id="modalTitle">
         </h2>
 
-
         <p
         id="modalText">
         </p>
 
-
-        <button
-        onclick="closeMemory()"
-        >
-
+        <button onclick="closeMemory()">
             Tutup ❤️
-
         </button>
-
 
     </div>
 
 </div>
 
 
-
 <!-- =====================================================
-     FINAL SLIDE
+     FINAL PAGE
 ===================================================== -->
 
 <section
@@ -2149,88 +1889,117 @@ id="closingPage"
 class="page final-page"
 >
 
+    <div
+    id="normalFinalContent">
 
-    <div class="final-flower">
+        <div class="final-flower">
+            🌸
+        </div>
 
-        🌸
+        <div class="final-date">
+            01 OKTOBER
+        </div>
+
+        <div
+        id="slideNumber"
+        class="slide-number">
+            1 / 7
+        </div>
+
+        <h1 class="final-title">
+            MY GIRL ❤️
+        </h1>
+
+        <div
+        id="shakeWord"
+        class="shake-word">
+            AKU SAYANG KAMU ❤️
+        </div>
+
+        <p
+        id="finalText"
+        class="final-text">
+            Sesederhana itu.
+            Aku sayang kamu dan ingin
+            kamu selalu tahu itu.
+        </p>
+
+        <div class="final-buttons">
+
+            <button onclick="previousSlide()">
+                ◀
+            </button>
+
+            <button onclick="nextSlide()">
+                NEXT ❤️
+            </button>
+
+        </div>
+
+        <div
+        id="slideDots"
+        class="slide-dots">
+        </div>
 
     </div>
 
 
-    <div class="final-date">
-
-        01 OKTOBER
-
-    </div>
-
+    <!-- =================================================
+         FOTO PENUTUP PALING TERAKHIR
+    ================================================= -->
 
     <div
-    id="slideNumber"
-    class="slide-number">
+    id="lastPhoto"
+    style="display:none;"
+    >
 
-        1 / 7
+        <div class="closing-title">
+            TERIMA KASIH ❤️
+        </div>
 
-    </div>
+        <div class="closing-photo">
 
+            <img
+            src="foto-penutup.jpg"
+            alt="Foto penutup"
+            >
 
-    <h1 class="final-title">
+        </div>
 
-        MY GIRL ❤️
+        <p class="closing-text">
 
-    </h1>
+            Terima kasih sudah menjadi
+            bagian terindah dalam ceritaku. ❤️
 
+            <br><br>
 
-    <div
-    id="shakeWord"
-    class="shake-word">
+            Website kecil ini mungkin sederhana,
+            tetapi dibuat dengan rasa sayang
+            khusus untuk kamu.
 
-        AKU SAYANG KAMU ❤️
+            <br><br>
 
-    </div>
+            Semoga foto terakhir ini menjadi
+            salah satu kenangan manis yang
+            selalu kamu ingat. 🌸
 
+        </p>
 
-    <p
-    id="finalText"
-    class="final-text">
+        <div class="shake-word">
+            AKU SAYANG KAMU ❤️
+        </div>
 
-        Terima kasih sudah menjadi
-        bagian terindah dalam hidupku.
+        <p class="closing-text">
+            01 OKTOBER — MY GIRL DAY 🌹
+        </p>
 
-    </p>
-
-
-    <div class="final-buttons">
-
-
-        <button
-        onclick="previousSlide()"
-        >
-
-            ◀
-
+        <button onclick="restartWebsite()">
+            🔄 ULANGI DARI AWAL
         </button>
 
-
-        <button
-        onclick="nextSlide()"
-        >
-
-            NEXT ❤️
-
-        </button>
-
-
     </div>
-
-
-    <div
-    id="slideDots"
-    class="slide-dots">
-    </div>
-
 
 </section>
-
 
 
 <!-- =====================================================
@@ -2245,12 +2014,10 @@ preload="auto">
 </audio>
 
 
-
 <script>
 
-
 /* =====================================================
-   KODE FOTO
+   KODE RAHASIA
 ===================================================== */
 
 const correctCode = [
@@ -2261,7 +2028,6 @@ const correctCode = [
     "foto6"
 
 ];
-
 
 let enteredCode = [];
 
@@ -2275,37 +2041,28 @@ function chooseCode(element){
     const code =
     element.dataset.code;
 
-
     if(
         enteredCode.includes(code)
     ){
-
         return;
-
     }
 
-
     enteredCode.push(code);
-
 
     element.classList.add(
         "selected"
     );
-
 
     element.querySelector(
         ".selected-number"
     ).textContent =
     enteredCode.length;
 
-
     if(
         enteredCode.length ===
         correctCode.length
     ){
-
         checkCode();
-
     }
 
 }
@@ -2322,7 +2079,6 @@ function checkCode(){
         (value,index)=>
         value === correctCode[index]
     );
-
 
     const status =
     document.getElementById(
@@ -2353,11 +2109,7 @@ function checkCode(){
 
         `;
 
-
-        /* MUSIK DIMULAI */
-
         startMusic();
-
 
         setTimeout(()=>{
 
@@ -2369,7 +2121,6 @@ function checkCode(){
                 "active"
             );
 
-
             document
             .getElementById(
                 "memoryPage"
@@ -2379,7 +2130,6 @@ function checkCode(){
             );
 
         },1200);
-
 
     }
 
@@ -2399,7 +2149,7 @@ function checkCode(){
             <br><br>
 
             <b>
-            URUTANNYA:
+                URUTANNYA:
             </b>
 
             <div class="correct-code">
@@ -2439,7 +2189,6 @@ function resetCode(){
 
     enteredCode=[];
 
-
     document
     .querySelectorAll(
         ".code-image"
@@ -2450,13 +2199,11 @@ function resetCode(){
             "selected"
         );
 
-
         card.querySelector(
             ".selected-number"
         ).textContent="";
 
     });
-
 
     document
     .getElementById(
@@ -2478,9 +2225,7 @@ function startMusic(){
         "music"
     );
 
-
     music.volume=.7;
-
 
     music.play().catch(()=>{
 
@@ -2500,7 +2245,6 @@ function startMusic(){
 const memories=[
 
     {
-
         title:
         "🌸 Awal Cerita",
 
@@ -2509,12 +2253,9 @@ const memories=[
 
         text:
         "Semua cerita yang indah selalu punya sebuah awal. Aku senang karena salah satu cerita itu adalah tentang kita."
-
     },
 
-
     {
-
         title:
         "🌷 Senyummu",
 
@@ -2523,12 +2264,9 @@ const memories=[
 
         text:
         "Senyummu adalah salah satu hal sederhana yang selalu berhasil membuat hariku terasa lebih indah."
-
     },
 
-
     {
-
         title:
         "🌹 Favoritku",
 
@@ -2537,12 +2275,9 @@ const memories=[
 
         text:
         "Banyak hal yang aku suka, tapi kamu tetap punya tempat yang berbeda di hatiku."
-
     },
 
-
     {
-
         title:
         "🌺 Moment Kita",
 
@@ -2551,12 +2286,9 @@ const memories=[
 
         text:
         "Beberapa moment mungkin terlihat sederhana, tetapi menjadi sangat berarti ketika dilakukan bersamamu."
-
     },
 
-
     {
-
         title:
         "🌻 Bahagia",
 
@@ -2565,12 +2297,9 @@ const memories=[
 
         text:
         "Bahagia tidak selalu membutuhkan sesuatu yang besar. Kadang cukup dengan seseorang yang kita sayangi."
-
     },
 
-
     {
-
         title:
         "🌼 Kesayanganku",
 
@@ -2579,12 +2308,9 @@ const memories=[
 
         text:
         "Aku ingin kamu tahu bahwa kamu adalah seseorang yang sangat berarti bagiku."
-
     },
 
-
     {
-
         title:
         "💐 Untukmu",
 
@@ -2593,12 +2319,9 @@ const memories=[
 
         text:
         "Website kecil ini adalah hadiah sederhana dariku untuk seseorang yang spesial."
-
     },
 
-
     {
-
         title:
         "🌸 Selamanya",
 
@@ -2607,12 +2330,9 @@ const memories=[
 
         text:
         "Semoga setelah hari ini masih ada banyak cerita dan kenangan yang bisa kita buat bersama."
-
     },
 
-
     {
-
         title:
         "❤️ Kejutan",
 
@@ -2621,7 +2341,6 @@ const memories=[
 
         text:
         "Kalau suatu hari kamu membuka halaman ini lagi, ingat bahwa halaman ini pernah dibuat khusus untukmu."
-
     }
 
 ];
@@ -2636,13 +2355,11 @@ function openMemory(index){
     const data =
     memories[index];
 
-
     document
     .getElementById(
         "modalPhoto"
     ).src =
     data.photo;
-
 
     document
     .getElementById(
@@ -2650,13 +2367,11 @@ function openMemory(index){
     ).textContent =
     data.title;
 
-
     document
     .getElementById(
         "modalText"
     ).textContent =
     data.text;
-
 
     document
     .getElementById(
@@ -2685,85 +2400,65 @@ function closeMemory(){
 
 
 /* =====================================================
-   7 SLIDE KOCOKAN
+   FINAL SLIDES
 ===================================================== */
 
 const finalSlides=[
 
     {
-
         word:
         "AKU SAYANG KAMU ❤️",
 
         text:
         "Sesederhana itu. Aku sayang kamu dan ingin kamu selalu tahu itu."
-
     },
 
-
     {
-
         word:
         "JANGAN TINGGALIN AKU 🥺",
 
         text:
         "Kalau ada satu hal yang aku minta, tetaplah tinggal dan tetap jadi bagian dari ceritaku."
-
     },
 
-
     {
-
         word:
         "KAMU FAVORITKU 💕",
 
         text:
         "Dari banyaknya orang di dunia ini, kamu tetap punya tempat yang berbeda."
-
     },
 
-
     {
-
         word:
         "KAMU SELALU DI HATIKU 🌸",
 
         text:
         "Walaupun kita sedang berjauhan, kamu tetap menjadi bagian dari pikiranku."
-
     },
 
-
     {
-
         word:
         "TETAP BERSAMAKU YA ❤️",
 
         text:
         "Aku ingin membuat lebih banyak kenangan, lebih banyak cerita, dan lebih banyak hari bersamamu."
-
     },
 
-
     {
-
         word:
         "MY GIRL, I LOVE YOU 💗",
 
         text:
         "01 Oktober adalah hari kecil yang aku buat untuk mengingatkanmu betapa berartinya kamu."
-
     },
 
-
     {
-
         word:
         "SELAMAT MY GIRL DAY 🌹",
 
         text:
         "01 OKTOBER — MY GIRL. Semoga halaman kecil ini menjadi salah satu kenangan manis yang kamu simpan."
-
     }
 
 ];
@@ -2788,7 +2483,6 @@ function openClosing(){
         "active"
     );
 
-
     document
     .getElementById(
         "closingPage"
@@ -2797,17 +2491,23 @@ function openClosing(){
         "active"
     );
 
+    document
+    .getElementById(
+        "normalFinalContent"
+    )
+    .style.display="block";
+
+    document
+    .getElementById(
+        "lastPhoto"
+    )
+    .style.display="none";
 
     currentSlide=0;
 
-
     showFinalSlide();
 
-
-    clearInterval(
-        slideTimer
-    );
-
+    clearInterval(slideTimer);
 
     slideTimer=
     setInterval(()=>{
@@ -2830,53 +2530,42 @@ function showFinalSlide(){
         currentSlide
     ];
 
-
     const word=
     document.getElementById(
         "shakeWord"
     );
-
 
     const text=
     document.getElementById(
         "finalText"
     );
 
-
     const number=
     document.getElementById(
         "slideNumber"
     );
 
-
     word.style.animation="none";
 
     void word.offsetWidth;
 
-
     word.style.animation=
     "shakeWord .45s infinite";
-
 
     word.textContent=
     slide.word;
 
-
     text.textContent=
     slide.text;
-
 
     number.textContent=
     `${currentSlide+1} / ${finalSlides.length}`;
 
 
-    /* DOTS */
-
     const dots=
     document.getElementById(
         "slideDots"
     );
-
 
     dots.innerHTML="";
 
@@ -2889,10 +2578,8 @@ function showFinalSlide(){
                 "div"
             );
 
-
             dot.className=
             "slide-dot";
-
 
             if(
                 index ===
@@ -2905,7 +2592,6 @@ function showFinalSlide(){
 
             }
 
-
             dot.onclick=()=>{
 
                 currentSlide=
@@ -2916,7 +2602,6 @@ function showFinalSlide(){
                 restartSlideTimer();
 
             };
-
 
             dots.appendChild(
                 dot
@@ -2929,26 +2614,41 @@ function showFinalSlide(){
 
 
 /* =====================================================
-   NEXT
+   NEXT SLIDE
 ===================================================== */
 
 function nextSlide(auto=false){
 
     currentSlide++;
 
+    /*
+       Setelah slide ke-7,
+       tampilkan FOTO PENUTUP.
+    */
 
     if(
         currentSlide >=
         finalSlides.length
     ){
 
-        currentSlide=0;
+        clearInterval(slideTimer);
 
+        document
+        .getElementById(
+            "normalFinalContent"
+        )
+        .style.display="none";
+
+        document
+        .getElementById(
+            "lastPhoto"
+        )
+        .style.display="block";
+
+        return;
     }
 
-
     showFinalSlide();
-
 
     if(!auto){
 
@@ -2965,8 +2665,42 @@ function nextSlide(auto=false){
 
 function previousSlide(){
 
-    currentSlide--;
+    /*
+       Jika sedang di foto penutup,
+       kembali ke slide terakhir.
+    */
 
+    const lastPhoto =
+    document.getElementById(
+        "lastPhoto"
+    );
+
+    if(
+        lastPhoto.style.display ===
+        "block"
+    ){
+
+        lastPhoto.style.display=
+        "none";
+
+        document
+        .getElementById(
+            "normalFinalContent"
+        )
+        .style.display="block";
+
+        currentSlide=
+        finalSlides.length-1;
+
+        showFinalSlide();
+
+        restartSlideTimer();
+
+        return;
+    }
+
+
+    currentSlide--;
 
     if(
         currentSlide < 0
@@ -2977,9 +2711,7 @@ function previousSlide(){
 
     }
 
-
     showFinalSlide();
-
 
     restartSlideTimer();
 
@@ -2996,13 +2728,23 @@ function restartSlideTimer(){
         slideTimer
     );
 
-
     slideTimer=
     setInterval(()=>{
 
         nextSlide(true);
 
     },3000);
+
+}
+
+
+/* =====================================================
+   RESTART WEBSITE
+===================================================== */
+
+function restartWebsite(){
+
+    location.reload();
 
 }
 
@@ -3018,10 +2760,8 @@ setInterval(()=>{
         "div"
     );
 
-
     heart.className=
     "heart";
-
 
     const list=[
 
@@ -3035,7 +2775,6 @@ setInterval(()=>{
 
     ];
 
-
     heart.textContent=
     list[
         Math.floor(
@@ -3044,11 +2783,9 @@ setInterval(()=>{
         )
     ];
 
-
     heart.style.left=
     Math.random()*100+
     "vw";
-
 
     heart.style.fontSize=
     (
@@ -3057,7 +2794,6 @@ setInterval(()=>{
     )+
     "px";
 
-
     heart.style.animationDuration=
     (
         6+
@@ -3065,11 +2801,9 @@ setInterval(()=>{
     )+
     "s";
 
-
     document.body.appendChild(
         heart
     );
-
 
     setTimeout(()=>{
 
@@ -3091,10 +2825,8 @@ setInterval(()=>{
         "div"
     );
 
-
     petal.className=
     "petal";
-
 
     const flowers=[
 
@@ -3105,19 +2837,17 @@ setInterval(()=>{
 
     ];
 
-
     petal.textContent=
     flowers[
         Math.floor(
-            Math.random()*flowers.length
+            Math.random()*
+            flowers.length
         )
     ];
-
 
     petal.style.left=
     Math.random()*100+
     "vw";
-
 
     petal.style.fontSize=
     (
@@ -3126,7 +2856,6 @@ setInterval(()=>{
     )+
     "px";
 
-
     petal.style.animationDuration=
     (
         6+
@@ -3134,11 +2863,9 @@ setInterval(()=>{
     )+
     "s";
 
-
     document.body.appendChild(
         petal
     );
-
 
     setTimeout(()=>{
 
@@ -3148,8 +2875,29 @@ setInterval(()=>{
 
 },850);
 
-</script>
 
+/* =====================================================
+   TUTUP MODAL KLIK DI LUAR
+===================================================== */
+
+document
+.getElementById("modal")
+.addEventListener(
+    "click",
+    function(e){
+
+        if(
+            e.target === this
+        ){
+
+            closeMemory();
+
+        }
+
+    }
+);
+
+</script>
 
 </body>
 
