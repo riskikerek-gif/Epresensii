@@ -15,16 +15,16 @@
 }
 
 body{
-    min-height:100vh;
     overflow:hidden;
+    min-height:100vh;
     font-family:Georgia,serif;
-    color:white;
     background:
-        radial-gradient(circle at 50% 40%,#451d3d 0%,#180b19 45%,#050308 100%);
+        radial-gradient(circle at center,#4b1d40,#170b1b 50%,#040207);
+    color:white;
 }
 
 /* =========================
-   BACKGROUND
+   BINTANG
 ========================= */
 
 .stars{
@@ -44,7 +44,7 @@ body{
 
 @keyframes twinkle{
     from{
-        opacity:.15;
+        opacity:.2;
         transform:scale(.5);
     }
     to{
@@ -53,53 +53,53 @@ body{
     }
 }
 
+
 /* =========================
-   SLIDE
+   HALAMAN
 ========================= */
 
-.slide{
-    position:absolute;
+.page{
+    position:fixed;
     inset:0;
+
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
+    flex-direction:column;
+
     text-align:center;
-    padding:25px;
 
     opacity:0;
     visibility:hidden;
-    transform:translateX(100%);
+
+    transform:scale(.8);
+
     transition:
-        opacity .8s ease,
-        transform .8s ease,
-        visibility .8s;
+        .9s ease;
 }
 
-.slide.active{
+.page.active{
     opacity:1;
     visibility:visible;
-    transform:translateX(0);
+    transform:scale(1);
 }
 
-.slide.old{
-    transform:translateX(-100%);
-}
 
 /* =========================
    JUDUL
 ========================= */
 
-h1{
-    font-size:clamp(42px,9vw,80px);
-    color:#ffafd3;
+.title{
+    font-size:clamp(42px,9vw,85px);
+
+    color:#ffacd4;
 
     text-shadow:
-        0 0 10px #ff5ca5,
-        0 0 30px #ff2d85,
-        0 0 60px #ff2d85;
+        0 0 10px #ff4d9d,
+        0 0 30px #ff2485,
+        0 0 60px #ff2485;
 
-    animation:titleShake 3s infinite;
+    animation:titleShake 2.5s infinite;
 }
 
 @keyframes titleShake{
@@ -125,48 +125,45 @@ h1{
     }
 }
 
-.number{
-    position:absolute;
-    top:25px;
-    right:30px;
-    color:#ff9bc9;
-    font-size:16px;
-}
 
 /* =========================
-   BUNGA
+   BUNGA BESAR
 ========================= */
 
 .flower{
     position:relative;
+
     width:230px;
-    height:300px;
-    margin-bottom:15px;
+    height:250px;
+
+    margin-bottom:10px;
 }
 
-/* BATANG */
 
-.stem{
+/* BATANG UTAMA */
+
+.main-stem{
     position:absolute;
+
+    width:10px;
+    height:170px;
+
     bottom:0;
-    left:111px;
-
-    width:8px;
-    height:190px;
-
-    border-radius:10px;
+    left:110px;
 
     background:
         linear-gradient(
             to right,
-            #174b20,
-            #64a957,
-            #174b20
+            #174b22,
+            #70b95b,
+            #174b22
         );
+
+    border-radius:10px;
 
     transform-origin:bottom;
 
-    animation:sway 4s ease-in-out infinite;
+    animation:sway 4s infinite ease-in-out;
 }
 
 @keyframes sway{
@@ -180,67 +177,27 @@ h1{
     }
 }
 
-/* DAUN */
 
-.leaf{
-    position:absolute;
-
-    width:75px;
-    height:35px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #70b85a,
-            #286c31
-        );
-
-    border-radius:100% 0 100% 0;
-
-    animation:leafMove 4s ease-in-out infinite;
-}
-
-.leaf.left{
-    left:45px;
-    bottom:80px;
-    transform:rotate(25deg);
-}
-
-.leaf.right{
-    right:42px;
-    bottom:115px;
-    transform:rotate(65deg) scaleX(-1);
-}
-
-@keyframes leafMove{
-
-    0%,100%{
-        margin-left:0;
-    }
-
-    50%{
-        margin-left:8px;
-    }
-}
-
-/* KEPALA BUNGA */
+/* =========================
+   BUNGA
+========================= */
 
 .bloom{
     position:absolute;
 
-    top:20px;
-    left:50%;
+    width:145px;
+    height:145px;
 
-    width:130px;
-    height:130px;
+    top:0;
+    left:50%;
 
     transform:
         translateX(-50%)
         scale(.05);
 
     animation:
-        bloom 2.5s forwards,
-        flowerSway 4s ease-in-out infinite 2.5s;
+        bloom 3s forwards,
+        flowerMove 5s ease-in-out infinite 3s;
 }
 
 @keyframes bloom{
@@ -249,13 +206,13 @@ h1{
         transform:
             translateX(-50%)
             scale(.05)
-            rotate(-30deg);
+            rotate(-40deg);
     }
 
     60%{
         transform:
             translateX(-50%)
-            scale(1.18)
+            scale(1.2)
             rotate(10deg);
     }
 
@@ -267,7 +224,7 @@ h1{
     }
 }
 
-@keyframes flowerSway{
+@keyframes flowerMove{
 
     0%,100%{
         transform:
@@ -282,16 +239,17 @@ h1{
     }
 }
 
+
 /* KELOPAK */
 
 .petal{
     position:absolute;
 
-    width:65px;
-    height:90px;
+    width:72px;
+    height:95px;
 
-    left:32px;
-    top:20px;
+    left:36px;
+    top:25px;
 
     border-radius:
         60% 60% 50% 50%;
@@ -299,142 +257,364 @@ h1{
     background:
         radial-gradient(
             circle at 50% 20%,
-            #ffd1e6,
-            #ff75b5 45%,
-            #ec2e7c
+            #ffe1ed,
+            #ff79b9 45%,
+            #ed277c
         );
 
     box-shadow:
-        0 0 15px #ff4b9d;
+        0 0 20px #ff3d91;
 }
 
 .petal:nth-child(1){
-    transform:rotate(0deg) translateY(-25px);
+    transform:rotate(0deg) translateY(-27px);
 }
 
 .petal:nth-child(2){
-    transform:rotate(72deg) translateY(-25px);
+    transform:rotate(72deg) translateY(-27px);
 }
 
 .petal:nth-child(3){
-    transform:rotate(144deg) translateY(-25px);
+    transform:rotate(144deg) translateY(-27px);
 }
 
 .petal:nth-child(4){
-    transform:rotate(216deg) translateY(-25px);
+    transform:rotate(216deg) translateY(-27px);
 }
 
 .petal:nth-child(5){
-    transform:rotate(288deg) translateY(-25px);
+    transform:rotate(288deg) translateY(-27px);
 }
 
-/* TENGAH BUNGA */
 
-.center{
+/* TENGAH */
+
+.flower-center{
     position:absolute;
 
-    width:45px;
-    height:45px;
+    width:48px;
+    height:48px;
 
-    left:43px;
-    top:43px;
+    left:48px;
+    top:48px;
 
     border-radius:50%;
 
     background:
         radial-gradient(
             circle,
-            #fff1a8,
-            #ffd044,
-            #e89b1c
+            #fff4a5,
+            #ffd238,
+            #e69a16
         );
 
     box-shadow:
-        0 0 25px #ffd85b;
+        0 0 25px #ffd83d;
 
-    z-index:5;
+    z-index:10;
 }
+
 
 /* =========================
-   KATA ROMANTIS
+   CABANG 9
 ========================= */
 
-.quote{
-    max-width:700px;
+.branches{
+    position:fixed;
+    inset:0;
 
-    font-size:
-        clamp(18px,3vw,25px);
-
-    line-height:1.8;
-
-    color:#ffe5f1;
-
-    text-shadow:
-        0 2px 10px #000;
-
-    animation:textIn 1.5s ease;
+    pointer-events:none;
 }
 
-.quote span{
-    color:#ff82bb;
-    font-weight:bold;
+
+/* SETIAP CABANG */
+
+.branch{
+    position:absolute;
+
+    width:280px;
+    min-height:125px;
+
+    padding:10px;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    background:
+        rgba(30,8,25,.88);
+
+    border:
+        1px solid #ff71b4;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 0 20px rgba(255,60,145,.45);
+
+    opacity:0;
+
+    transition:
+        1s ease;
+
+    pointer-events:auto;
 }
 
-@keyframes textIn{
+
+/* GAMBAR */
+
+.branch img{
+    width:85px;
+    height:100px;
+
+    object-fit:cover;
+
+    border-radius:14px;
+
+    border:2px solid #ff8bc4;
+
+    box-shadow:
+        0 0 15px #ff3d91;
+
+    flex-shrink:0;
+}
+
+
+/* TEKS */
+
+.branch-text{
+    font-size:14px;
+    line-height:1.5;
+    color:#ffe4f0;
+}
+
+.branch-text strong{
+    display:block;
+
+    color:#ff8fc2;
+
+    font-size:16px;
+
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   POSISI 9 CABANG
+========================= */
+
+.branch:nth-child(1){
+    top:8%;
+    left:3%;
+}
+
+.branch:nth-child(2){
+    top:30%;
+    left:3%;
+}
+
+.branch:nth-child(3){
+    top:55%;
+    left:3%;
+}
+
+.branch:nth-child(4){
+    top:76%;
+    left:8%;
+}
+
+.branch:nth-child(5){
+    top:8%;
+    right:3%;
+}
+
+.branch:nth-child(6){
+    top:30%;
+    right:3%;
+}
+
+.branch:nth-child(7){
+    top:55%;
+    right:3%;
+}
+
+.branch:nth-child(8){
+    top:76%;
+    right:8%;
+}
+
+.branch:nth-child(9){
+    top:42%;
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    width:300px;
+}
+
+
+/* CABANG MUNCUL */
+
+.branch.show{
+    opacity:1;
+
+    animation:
+        branchAppear 1s ease;
+}
+
+@keyframes branchAppear{
 
     from{
         opacity:0;
-        transform:translateY(25px);
+
+        transform:
+            scale(.3)
+            translateY(30px);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+
+        transform:
+            scale(1)
+            translateY(0);
     }
 }
+
 
 /* =========================
    TOMBOL
 ========================= */
 
-.buttons{
-    display:flex;
-    gap:12px;
-    margin-top:25px;
-}
-
 button{
-    border:none;
+    position:relative;
+    z-index:100;
 
-    padding:
-        12px 25px;
+    margin-top:15px;
+
+    padding:13px 28px;
+
+    border:none;
 
     border-radius:30px;
 
     color:white;
 
-    font-size:16px;
-
-    cursor:pointer;
-
     background:
         linear-gradient(
             45deg,
-            #ff3188,
-            #ff8bc2
+            #ff2f88,
+            #ff8bc4
         );
 
     box-shadow:
         0 0 20px #ff3188;
 
+    font-size:16px;
+
+    cursor:pointer;
+
     transition:.3s;
 }
 
 button:hover{
-    transform:
-        scale(1.08)
-        translateY(-3px);
+    transform:scale(1.1);
 }
+
+
+/* =========================
+   HALAMAN PENUTUP
+========================= */
+
+.closing{
+    max-width:800px;
+
+    padding:30px;
+}
+
+.closing h1{
+
+    font-size:
+        clamp(38px,8vw,75px);
+
+    color:#ff9bc9;
+
+    text-shadow:
+        0 0 15px #ff3d91,
+        0 0 40px #ff2485;
+}
+
+
+/* KOCOKAN KATA-KATA */
+
+.shake-text{
+
+    margin-top:25px;
+
+    font-size:
+        clamp(19px,4vw,30px);
+
+    line-height:1.8;
+
+    color:#ffe7f2;
+
+    animation:
+        shakeText 1.5s infinite;
+}
+
+@keyframes shakeText{
+
+    0%,100%{
+        transform:
+            translateX(0)
+            rotate(0);
+    }
+
+    10%{
+        transform:
+            translateX(-8px)
+            rotate(-2deg);
+    }
+
+    20%{
+        transform:
+            translateX(8px)
+            rotate(2deg);
+    }
+
+    30%{
+        transform:
+            translateX(-7px)
+            rotate(-1deg);
+    }
+
+    40%{
+        transform:
+            translateX(7px)
+            rotate(1deg);
+    }
+
+    50%{
+        transform:
+            translateX(-4px);
+    }
+
+    60%{
+        transform:
+            translateX(4px);
+    }
+}
+
+.shake-text span{
+    color:#ff71b4;
+
+    font-weight:bold;
+
+    text-shadow:
+        0 0 15px #ff3d91;
+}
+
 
 /* =========================
    HATI
@@ -445,14 +625,14 @@ button:hover{
 
     bottom:-40px;
 
-    font-size:20px;
-
-    color:#ff65aa;
+    font-size:22px;
 
     pointer-events:none;
 
     animation:
         heartFly linear forwards;
+
+    z-index:5;
 }
 
 @keyframes heartFly{
@@ -461,6 +641,7 @@ button:hover{
         transform:
             translateY(0)
             rotate(0);
+
         opacity:1;
     }
 
@@ -468,88 +649,124 @@ button:hover{
         transform:
             translateY(-110vh)
             rotate(360deg);
+
         opacity:0;
     }
 }
 
-/* =========================
-   MUSIK
-========================= */
-
-.music{
-    position:fixed;
-
-    bottom:15px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    font-size:13px;
-
-    color:#ffb6d7;
-
-    z-index:100;
-}
 
 /* =========================
-   RESPONSIVE
+   RESPONSIVE HP
 ========================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     .flower{
-        transform:scale(.82);
-        margin-bottom:-5px;
+        transform:scale(.75);
+        margin-top:-50px;
     }
 
-    .quote{
-        font-size:17px;
-        line-height:1.7;
+    .branch{
+        width:180px;
+        min-height:85px;
+        padding:6px;
     }
 
-    h1{
-        font-size:43px;
+    .branch img{
+        width:52px;
+        height:65px;
     }
 
-    button{
-        padding:10px 20px;
-        font-size:14px;
+    .branch-text{
+        font-size:10px;
     }
+
+    .branch-text strong{
+        font-size:12px;
+    }
+
+    .branch:nth-child(1){
+        top:3%;
+        left:1%;
+    }
+
+    .branch:nth-child(2){
+        top:20%;
+        left:1%;
+    }
+
+    .branch:nth-child(3){
+        top:37%;
+        left:1%;
+    }
+
+    .branch:nth-child(4){
+        top:54%;
+        left:1%;
+    }
+
+    .branch:nth-child(5){
+        top:3%;
+        right:1%;
+    }
+
+    .branch:nth-child(6){
+        top:20%;
+        right:1%;
+    }
+
+    .branch:nth-child(7){
+        top:37%;
+        right:1%;
+    }
+
+    .branch:nth-child(8){
+        top:54%;
+        right:1%;
+    }
+
+    .branch:nth-child(9){
+        top:72%;
+        left:50%;
+        width:230px;
+    }
+
+    .page h1{
+        font-size:42px;
+    }
+
 }
 </style>
 </head>
 
-
 <body>
 
-<!-- =========================
-     AUDIO
-========================= -->
+
+<!-- =================================
+     MUSIK
+================================= -->
 
 <audio id="music" loop>
     <source src="lagu.mp3" type="audio/mpeg">
 </audio>
 
 
-<!-- BINTANG -->
+<!-- =================================
+     BINTANG
+================================= -->
 
 <div class="stars" id="stars"></div>
 
 
-<!-- =========================
-     SLIDE 1
-========================= -->
+<!-- =================================
+     HALAMAN PEMBUKA
+================================= -->
 
-<section class="slide active" id="slide1">
-
-    <div class="number">01 / 09</div>
+<section class="page active" id="opening">
 
     <div class="flower">
 
-        <div class="stem"></div>
-
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
+        <div class="main-stem"></div>
 
         <div class="bloom">
 
@@ -559,46 +776,43 @@ button:hover{
             <div class="petal"></div>
             <div class="petal"></div>
 
-            <div class="center"></div>
+            <div class="flower-center"></div>
 
         </div>
 
     </div>
 
-    <h1>MY GIRL ❤️</h1>
+    <h1 class="title">
+        MY GIRL ❤️
+    </h1>
 
-    <p class="quote">
-        Dari sekian banyak hal indah di dunia,
-        <br>
-        <span>kamu adalah salah satu yang paling aku syukuri.</span>
+    <p style="
+        margin-top:15px;
+        color:#ffd9e9;
+        font-size:18px;
+    ">
+        Ada satu bunga untuk seseorang
+        yang sangat spesial...
     </p>
 
-    <div class="buttons">
-        <button onclick="startMusic()">
-            Mulai ❤️
-        </button>
-
-        <button onclick="nextSlide()">
-            Lanjut 🌸
-        </button>
-    </div>
+    <button onclick="startFlower()">
+        Buka Bunganya 🌸
+    </button>
 
 </section>
 
 
-<!-- =========================
-     SLIDE 2
-========================= -->
+<!-- =================================
+     HALAMAN BUNGA 9 CABANG
+================================= -->
 
-<section class="slide" id="slide2">
+<section class="page" id="flowerPage">
 
-    <div class="number">02 / 09</div>
+    <!-- BUNGA UTAMA -->
 
     <div class="flower">
 
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
+        <div class="main-stem"></div>
 
         <div class="bloom">
 
@@ -608,406 +822,278 @@ button:hover{
             <div class="petal"></div>
             <div class="petal"></div>
 
-            <div class="center"></div>
+            <div class="flower-center"></div>
 
         </div>
 
     </div>
 
-    <h1>Untuk Kamu 🌷</h1>
 
-    <p class="quote">
-        Aku tidak tahu bagaimana menjelaskan semuanya,
-        <br>
-        tapi setiap kali melihatmu,
-        <br>
-        <span>hatiku selalu merasa pulang.</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">← Kembali</button>
-        <button onclick="nextSlide()">Lanjut →</button>
-    </div>
-
-</section>
+    <h1 style="
+        font-size:35px;
+        color:#ff9bc9;
+        text-shadow:0 0 20px #ff3d91;
+    ">
+        9 Alasan Aku Sayang Kamu 🌸
+    </h1>
 
 
-<!-- =========================
-     SLIDE 3
-========================= -->
+    <!-- =================================
+         9 CABANG
+    ================================= -->
 
-<section class="slide" id="slide3">
+    <div class="branches">
 
-    <div class="number">03 / 09</div>
+        <!-- 1 -->
 
-    <div class="flower">
+        <div class="branch">
 
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
+            <img src="https://placecats.com/300/400">
 
-        <div class="bloom">
+            <div class="branch-text">
 
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
+                <strong>🌸 Senyummu</strong>
 
-            <div class="center"></div>
+                Senyummu sederhana,
+                tapi selalu berhasil
+                membuat hariku lebih indah.
+
+            </div>
+
+        </div>
+
+
+        <!-- 2 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/301/400">
+
+            <div class="branch-text">
+
+                <strong>💕 Kenyamanan</strong>
+
+                Entah kenapa,
+                bersamamu selalu terasa
+                seperti berada di rumah.
+
+            </div>
+
+        </div>
+
+
+        <!-- 3 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/302/400">
+
+            <div class="branch-text">
+
+                <strong>🥺 Perhatianmu</strong>
+
+                Hal-hal kecil yang kamu lakukan
+                ternyata punya arti besar
+                buat aku.
+
+            </div>
+
+        </div>
+
+
+        <!-- 4 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/303/400">
+
+            <div class="branch-text">
+
+                <strong>🌷 Kehadiranmu</strong>
+
+                Tidak perlu melakukan apa-apa.
+                Cukup ada di sampingku,
+                itu sudah membuatku bahagia.
+
+            </div>
+
+        </div>
+
+
+        <!-- 5 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/304/400">
+
+            <div class="branch-text">
+
+                <strong>❤️ Hatimu</strong>
+
+                Ada banyak hal tentang dirimu
+                yang membuatku semakin
+                jatuh cinta.
+
+            </div>
+
+        </div>
+
+
+        <!-- 6 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/305/400">
+
+            <div class="branch-text">
+
+                <strong>✨ Caramu</strong>
+
+                Caramu berbicara,
+                tertawa, dan bercanda
+                selalu aku suka.
+
+            </div>
+
+        </div>
+
+
+        <!-- 7 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/306/400">
+
+            <div class="branch-text">
+
+                <strong>🌹 Kenangan</strong>
+
+                Setiap kenangan bersamamu
+                adalah sesuatu yang ingin
+                selalu aku simpan.
+
+            </div>
+
+        </div>
+
+
+        <!-- 8 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/307/400">
+
+            <div class="branch-text">
+
+                <strong>💖 Pilihanku</strong>
+
+                Dari sekian banyak orang,
+                aku senang bisa
+                menemukan kamu.
+
+            </div>
+
+        </div>
+
+
+        <!-- 9 -->
+
+        <div class="branch">
+
+            <img src="https://placecats.com/308/400">
+
+            <div class="branch-text">
+
+                <strong>🌸 Kamu</strong>
+
+                Dan alasan terakhir
+                sekaligus yang paling penting...
+
+                <br>
+
+                <b>Karena kamu adalah kamu. ❤️</b>
+
+            </div>
 
         </div>
 
     </div>
 
-    <h1>Terima Kasih 🌸</h1>
 
-    <p class="quote">
-        Terima kasih sudah datang,
-        <br>
-        terima kasih sudah bertahan,
-        <br>
-        dan terima kasih sudah menjadi
-        <br>
-        <span>bagian dari cerita hidupku.</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">←</button>
-        <button onclick="nextSlide()">Lanjut 💕</button>
-    </div>
+    <button onclick="finishFlower()">
+        Buka pesan terakhir 💌
+    </button>
 
 </section>
 
 
-<!-- =========================
-     SLIDE 4
-========================= -->
+<!-- =================================
+     PENUTUP
+================================= -->
 
-<section class="slide" id="slide4">
+<section class="page" id="closing">
 
-    <div class="number">04 / 09</div>
+    <div class="closing">
 
-    <div class="flower">
+        <h1>
+            Untuk My Girl 🌸
+        </h1>
 
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
+        <div class="shake-text">
 
-        <div class="bloom">
+            Dari sembilan batang bunga ini,
+            <br>
 
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
+            sebenarnya cuma ada satu
+            hal yang ingin aku katakan...
 
-            <div class="center"></div>
+            <br><br>
+
+            <span>
+                AKU SAYANG KAMU ❤️
+            </span>
+
+            <br><br>
+
+            Jangan pergi jauh-jauh ya...
+
+            <br>
+
+            karena aku masih ingin
+            membuat banyak cerita
+            bersamamu. 🥺💕
 
         </div>
 
     </div>
 
-    <h1>Kamu Istimewa 💗</h1>
-
-    <p class="quote">
-        Bukan karena kamu sempurna,
-        <br>
-        tapi karena bersamamu
-        <br>
-        <span>aku bisa menjadi diriku sendiri.</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">←</button>
-        <button onclick="nextSlide()">Lanjut 🌹</button>
-    </div>
+    <button onclick="restart()">
+        🌸 Kocok Lagi Dari Awal
+    </button>
 
 </section>
-
-
-<!-- =========================
-     SLIDE 5
-========================= -->
-
-<section class="slide" id="slide5">
-
-    <div class="number">05 / 09</div>
-
-    <div class="flower">
-
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-
-        <div class="bloom">
-
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="center"></div>
-
-        </div>
-
-    </div>
-
-    <h1>Kalau Boleh 🥺</h1>
-
-    <p class="quote">
-        Kalau boleh memilih sekali lagi,
-        <br>
-        aku tetap akan memilih kamu.
-        <br><br>
-        Karena dari banyaknya manusia di dunia,
-        <br>
-        <span>aku menemukan kenyamanan di kamu.</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">←</button>
-        <button onclick="nextSlide()">Lanjut ❤️</button>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SLIDE 6
-========================= -->
-
-<section class="slide" id="slide6">
-
-    <div class="number">06 / 09</div>
-
-    <div class="flower">
-
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-
-        <div class="bloom">
-
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="center"></div>
-
-        </div>
-
-    </div>
-
-    <h1>Jangan Pergi 🌷</h1>
-
-    <p class="quote">
-        Aku tidak meminta hubungan yang sempurna.
-        <br>
-        Aku hanya ingin kita tetap saling memilih,
-        <br>
-        bahkan ketika keadaan tidak selalu mudah.
-        <br><br>
-        <span>Tetap di sini bersamaku, ya?</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">←</button>
-        <button onclick="nextSlide()">Lanjut 💕</button>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SLIDE 7
-========================= -->
-
-<section class="slide" id="slide7">
-
-    <div class="number">07 / 09</div>
-
-    <div class="flower">
-
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-
-        <div class="bloom">
-
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="center"></div>
-
-        </div>
-
-    </div>
-
-    <h1>Untuk Selamanya ❤️</h1>
-
-    <p class="quote">
-        Aku ingin mengumpulkan lebih banyak cerita,
-        <br>
-        lebih banyak tawa,
-        <br>
-        lebih banyak kenangan,
-        <br><br>
-        <span>dan semuanya bersamamu.</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">←</button>
-        <button onclick="nextSlide()">Lanjut 🌸</button>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SLIDE 8
-========================= -->
-
-<section class="slide" id="slide8">
-
-    <div class="number">08 / 09</div>
-
-    <div class="flower">
-
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-
-        <div class="bloom">
-
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="center"></div>
-
-        </div>
-
-    </div>
-
-    <h1>Pesan Kecil 💌</h1>
-
-    <p class="quote">
-        Jika suatu hari kamu merasa tidak cukup baik,
-        <br>
-        ingatlah bahwa ada seseorang
-        <br>
-        yang melihat begitu banyak hal indah dalam dirimu.
-        <br><br>
-        <span>Dan orang itu adalah aku.</span>
-    </p>
-
-    <div class="buttons">
-        <button onclick="prevSlide()">←</button>
-        <button onclick="nextSlide()">Kejutan terakhir 🎁</button>
-    </div>
-
-</section>
-
-
-<!-- =========================
-     SLIDE 9
-========================= -->
-
-<section class="slide" id="slide9">
-
-    <div class="number">09 / 09</div>
-
-    <div class="flower">
-
-        <div class="stem"></div>
-        <div class="leaf left"></div>
-        <div class="leaf right"></div>
-
-        <div class="bloom">
-
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-            <div class="petal"></div>
-
-            <div class="center"></div>
-
-        </div>
-
-    </div>
-
-    <h1>MY GIRL 🌸</h1>
-
-    <p class="quote">
-
-        Dari bunga pertama sampai bunga terakhir,
-        <br>
-        ada satu hal yang tidak berubah...
-        <br><br>
-
-        <span>Aku sayang kamu. ❤️</span>
-
-        <br><br>
-
-        Semoga bunga ini terus mekar,
-        <br>
-        seperti rasa sayangku yang terus tumbuh.
-
-        <br><br>
-
-        <b>Jangan tinggalin aku ya. 🥺❤️</b>
-
-    </p>
-
-    <div class="buttons">
-
-        <button onclick="prevSlide()">
-            ← Kembali
-        </button>
-
-        <button onclick="restart()">
-            🌸 Dari Awal
-        </button>
-
-    </div>
-
-</section>
-
-
-<div class="music">
-    🎵 Lagu untuk My Girl
-</div>
 
 
 <script>
 
-/* =========================
+/* =================================
    BINTANG
-========================= */
+================================= */
 
-for(let i=0;i<90;i++){
+for(let i=0;i<100;i++){
 
-    const star=document.createElement("div");
+    const star =
+        document.createElement("div");
 
     star.className="star";
 
-    star.style.left=
+    star.style.left =
         Math.random()*100+"%";
 
-    star.style.top=
+    star.style.top =
         Math.random()*100+"%";
 
-    star.style.animationDelay=
+    star.style.animationDelay =
         Math.random()*3+"s";
 
     document
@@ -1016,97 +1102,118 @@ for(let i=0;i<90;i++){
 }
 
 
-/* =========================
-   SLIDE SYSTEM
-========================= */
-
-let current=1;
-
-const total=9;
-
-function showSlide(newSlide){
-
-    if(newSlide<1)
-        newSlide=total;
-
-    if(newSlide>total)
-        newSlide=1;
-
-    const oldSlide=
-        document.getElementById(
-            "slide"+current
-        );
-
-    const newPage=
-        document.getElementById(
-            "slide"+newSlide
-        );
-
-    oldSlide.classList.remove("active");
-
-    oldSlide.classList.add("old");
-
-    newPage.classList.remove("old");
-
-    newPage.classList.add("active");
-
-    current=newSlide;
-}
-
-
-function nextSlide(){
-
-    showSlide(current+1);
-
-}
-
-
-function prevSlide(){
-
-    showSlide(current-1);
-
-}
-
-
-function restart(){
-
-    showSlide(1);
-
-}
-
-
-/* =========================
+/* =================================
    MUSIK
-========================= */
+================================= */
+
+const music =
+    document.getElementById("music");
+
 
 function startMusic(){
 
-    const music=
-        document.getElementById("music");
-
     music.volume=.65;
 
-    music.play().catch(()=>{
-        alert(
-            "Tekan tombol sekali lagi untuk memulai musik ❤️"
-        );
+    music.play().catch(()=>{});
+
+}
+
+
+/* =================================
+   BUKA BUNGA
+================================= */
+
+function startFlower(){
+
+    startMusic();
+
+    document
+        .getElementById("opening")
+        .classList.remove("active");
+
+    document
+        .getElementById("flowerPage")
+        .classList.add("active");
+
+    revealBranches();
+
+}
+
+
+/* =================================
+   9 CABANG MUNCUL BERGANTIAN
+================================= */
+
+function revealBranches(){
+
+    const branches =
+        document.querySelectorAll(".branch");
+
+    branches.forEach((branch,index)=>{
+
+        setTimeout(()=>{
+
+            branch.classList.add("show");
+
+        },700+(index*650));
+
     });
 
 }
 
 
-/* =========================
+/* =================================
+   PENUTUP
+================================= */
+
+function finishFlower(){
+
+    document
+        .getElementById("flowerPage")
+        .classList.remove("active");
+
+    document
+        .getElementById("closing")
+        .classList.add("active");
+
+}
+
+
+/* =================================
+   ULANG
+================================= */
+
+function restart(){
+
+    document
+        .getElementById("closing")
+        .classList.remove("active");
+
+    document
+        .getElementById("opening")
+        .classList.add("active");
+
+    document
+        .querySelectorAll(".branch")
+        .forEach(branch=>{
+            branch.classList.remove("show");
+        });
+
+}
+
+
+/* =================================
    HATI TERBANG
-========================= */
+================================= */
 
 setInterval(()=>{
 
-    const heart=
+    const heart =
         document.createElement("div");
 
     heart.className="heart";
 
-    const hearts=[
+    const list=[
         "❤️",
         "💕",
         "💗",
@@ -1115,17 +1222,17 @@ setInterval(()=>{
         "🌷"
     ];
 
-    heart.innerHTML=
-        hearts[
+    heart.innerHTML =
+        list[
             Math.floor(
-                Math.random()*hearts.length
+                Math.random()*list.length
             )
         ];
 
-    heart.style.left=
+    heart.style.left =
         Math.random()*100+"%";
 
-    heart.style.animationDuration=
+    heart.style.animationDuration =
         (4+Math.random()*5)+"s";
 
     document.body.appendChild(heart);
@@ -1135,24 +1242,6 @@ setInterval(()=>{
     },9000);
 
 },450);
-
-
-/* =========================
-   KEYBOARD
-========================= */
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        if(e.key==="ArrowRight")
-            nextSlide();
-
-        if(e.key==="ArrowLeft")
-            prevSlide();
-
-    }
-);
 
 </script>
 
