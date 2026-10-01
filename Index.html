@@ -1,0 +1,1161 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Girl 🌸❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    overflow:hidden;
+    font-family:Georgia,serif;
+    color:white;
+    background:
+        radial-gradient(circle at 50% 40%,#451d3d 0%,#180b19 45%,#050308 100%);
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{
+        opacity:.15;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+/* =========================
+   SLIDE
+========================= */
+
+.slide{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateX(100%);
+    transition:
+        opacity .8s ease,
+        transform .8s ease,
+        visibility .8s;
+}
+
+.slide.active{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(0);
+}
+
+.slide.old{
+    transform:translateX(-100%);
+}
+
+/* =========================
+   JUDUL
+========================= */
+
+h1{
+    font-size:clamp(42px,9vw,80px);
+    color:#ffafd3;
+
+    text-shadow:
+        0 0 10px #ff5ca5,
+        0 0 30px #ff2d85,
+        0 0 60px #ff2d85;
+
+    animation:titleShake 3s infinite;
+}
+
+@keyframes titleShake{
+
+    0%,90%,100%{
+        transform:rotate(0);
+    }
+
+    92%{
+        transform:rotate(-3deg);
+    }
+
+    94%{
+        transform:rotate(3deg);
+    }
+
+    96%{
+        transform:rotate(-2deg);
+    }
+
+    98%{
+        transform:rotate(2deg);
+    }
+}
+
+.number{
+    position:absolute;
+    top:25px;
+    right:30px;
+    color:#ff9bc9;
+    font-size:16px;
+}
+
+/* =========================
+   BUNGA
+========================= */
+
+.flower{
+    position:relative;
+    width:230px;
+    height:300px;
+    margin-bottom:15px;
+}
+
+/* BATANG */
+
+.stem{
+    position:absolute;
+    bottom:0;
+    left:111px;
+
+    width:8px;
+    height:190px;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            to right,
+            #174b20,
+            #64a957,
+            #174b20
+        );
+
+    transform-origin:bottom;
+
+    animation:sway 4s ease-in-out infinite;
+}
+
+@keyframes sway{
+
+    0%,100%{
+        transform:rotate(-3deg);
+    }
+
+    50%{
+        transform:rotate(4deg);
+    }
+}
+
+/* DAUN */
+
+.leaf{
+    position:absolute;
+
+    width:75px;
+    height:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #70b85a,
+            #286c31
+        );
+
+    border-radius:100% 0 100% 0;
+
+    animation:leafMove 4s ease-in-out infinite;
+}
+
+.leaf.left{
+    left:45px;
+    bottom:80px;
+    transform:rotate(25deg);
+}
+
+.leaf.right{
+    right:42px;
+    bottom:115px;
+    transform:rotate(65deg) scaleX(-1);
+}
+
+@keyframes leafMove{
+
+    0%,100%{
+        margin-left:0;
+    }
+
+    50%{
+        margin-left:8px;
+    }
+}
+
+/* KEPALA BUNGA */
+
+.bloom{
+    position:absolute;
+
+    top:20px;
+    left:50%;
+
+    width:130px;
+    height:130px;
+
+    transform:
+        translateX(-50%)
+        scale(.05);
+
+    animation:
+        bloom 2.5s forwards,
+        flowerSway 4s ease-in-out infinite 2.5s;
+}
+
+@keyframes bloom{
+
+    0%{
+        transform:
+            translateX(-50%)
+            scale(.05)
+            rotate(-30deg);
+    }
+
+    60%{
+        transform:
+            translateX(-50%)
+            scale(1.18)
+            rotate(10deg);
+    }
+
+    100%{
+        transform:
+            translateX(-50%)
+            scale(1)
+            rotate(0);
+    }
+}
+
+@keyframes flowerSway{
+
+    0%,100%{
+        transform:
+            translateX(-50%)
+            rotate(-5deg);
+    }
+
+    50%{
+        transform:
+            translateX(-50%)
+            rotate(5deg);
+    }
+}
+
+/* KELOPAK */
+
+.petal{
+    position:absolute;
+
+    width:65px;
+    height:90px;
+
+    left:32px;
+    top:20px;
+
+    border-radius:
+        60% 60% 50% 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            #ffd1e6,
+            #ff75b5 45%,
+            #ec2e7c
+        );
+
+    box-shadow:
+        0 0 15px #ff4b9d;
+}
+
+.petal:nth-child(1){
+    transform:rotate(0deg) translateY(-25px);
+}
+
+.petal:nth-child(2){
+    transform:rotate(72deg) translateY(-25px);
+}
+
+.petal:nth-child(3){
+    transform:rotate(144deg) translateY(-25px);
+}
+
+.petal:nth-child(4){
+    transform:rotate(216deg) translateY(-25px);
+}
+
+.petal:nth-child(5){
+    transform:rotate(288deg) translateY(-25px);
+}
+
+/* TENGAH BUNGA */
+
+.center{
+    position:absolute;
+
+    width:45px;
+    height:45px;
+
+    left:43px;
+    top:43px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff1a8,
+            #ffd044,
+            #e89b1c
+        );
+
+    box-shadow:
+        0 0 25px #ffd85b;
+
+    z-index:5;
+}
+
+/* =========================
+   KATA ROMANTIS
+========================= */
+
+.quote{
+    max-width:700px;
+
+    font-size:
+        clamp(18px,3vw,25px);
+
+    line-height:1.8;
+
+    color:#ffe5f1;
+
+    text-shadow:
+        0 2px 10px #000;
+
+    animation:textIn 1.5s ease;
+}
+
+.quote span{
+    color:#ff82bb;
+    font-weight:bold;
+}
+
+@keyframes textIn{
+
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   TOMBOL
+========================= */
+
+.buttons{
+    display:flex;
+    gap:12px;
+    margin-top:25px;
+}
+
+button{
+    border:none;
+
+    padding:
+        12px 25px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    background:
+        linear-gradient(
+            45deg,
+            #ff3188,
+            #ff8bc2
+        );
+
+    box-shadow:
+        0 0 20px #ff3188;
+
+    transition:.3s;
+}
+
+button:hover{
+    transform:
+        scale(1.08)
+        translateY(-3px);
+}
+
+/* =========================
+   HATI
+========================= */
+
+.heart{
+    position:fixed;
+
+    bottom:-40px;
+
+    font-size:20px;
+
+    color:#ff65aa;
+
+    pointer-events:none;
+
+    animation:
+        heartFly linear forwards;
+}
+
+@keyframes heartFly{
+
+    from{
+        transform:
+            translateY(0)
+            rotate(0);
+        opacity:1;
+    }
+
+    to{
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* =========================
+   MUSIK
+========================= */
+
+.music{
+    position:fixed;
+
+    bottom:15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-size:13px;
+
+    color:#ffb6d7;
+
+    z-index:100;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+    .flower{
+        transform:scale(.82);
+        margin-bottom:-5px;
+    }
+
+    .quote{
+        font-size:17px;
+        line-height:1.7;
+    }
+
+    h1{
+        font-size:43px;
+    }
+
+    button{
+        padding:10px 20px;
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<!-- =========================
+     AUDIO
+========================= -->
+
+<audio id="music" loop>
+    <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+
+<!-- BINTANG -->
+
+<div class="stars" id="stars"></div>
+
+
+<!-- =========================
+     SLIDE 1
+========================= -->
+
+<section class="slide active" id="slide1">
+
+    <div class="number">01 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>MY GIRL ❤️</h1>
+
+    <p class="quote">
+        Dari sekian banyak hal indah di dunia,
+        <br>
+        <span>kamu adalah salah satu yang paling aku syukuri.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="startMusic()">
+            Mulai ❤️
+        </button>
+
+        <button onclick="nextSlide()">
+            Lanjut 🌸
+        </button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 2
+========================= -->
+
+<section class="slide" id="slide2">
+
+    <div class="number">02 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Untuk Kamu 🌷</h1>
+
+    <p class="quote">
+        Aku tidak tahu bagaimana menjelaskan semuanya,
+        <br>
+        tapi setiap kali melihatmu,
+        <br>
+        <span>hatiku selalu merasa pulang.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">← Kembali</button>
+        <button onclick="nextSlide()">Lanjut →</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 3
+========================= -->
+
+<section class="slide" id="slide3">
+
+    <div class="number">03 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Terima Kasih 🌸</h1>
+
+    <p class="quote">
+        Terima kasih sudah datang,
+        <br>
+        terima kasih sudah bertahan,
+        <br>
+        dan terima kasih sudah menjadi
+        <br>
+        <span>bagian dari cerita hidupku.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">Lanjut 💕</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 4
+========================= -->
+
+<section class="slide" id="slide4">
+
+    <div class="number">04 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Kamu Istimewa 💗</h1>
+
+    <p class="quote">
+        Bukan karena kamu sempurna,
+        <br>
+        tapi karena bersamamu
+        <br>
+        <span>aku bisa menjadi diriku sendiri.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">Lanjut 🌹</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 5
+========================= -->
+
+<section class="slide" id="slide5">
+
+    <div class="number">05 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Kalau Boleh 🥺</h1>
+
+    <p class="quote">
+        Kalau boleh memilih sekali lagi,
+        <br>
+        aku tetap akan memilih kamu.
+        <br><br>
+        Karena dari banyaknya manusia di dunia,
+        <br>
+        <span>aku menemukan kenyamanan di kamu.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">Lanjut ❤️</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 6
+========================= -->
+
+<section class="slide" id="slide6">
+
+    <div class="number">06 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Jangan Pergi 🌷</h1>
+
+    <p class="quote">
+        Aku tidak meminta hubungan yang sempurna.
+        <br>
+        Aku hanya ingin kita tetap saling memilih,
+        <br>
+        bahkan ketika keadaan tidak selalu mudah.
+        <br><br>
+        <span>Tetap di sini bersamaku, ya?</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">Lanjut 💕</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 7
+========================= -->
+
+<section class="slide" id="slide7">
+
+    <div class="number">07 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Untuk Selamanya ❤️</h1>
+
+    <p class="quote">
+        Aku ingin mengumpulkan lebih banyak cerita,
+        <br>
+        lebih banyak tawa,
+        <br>
+        lebih banyak kenangan,
+        <br><br>
+        <span>dan semuanya bersamamu.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">Lanjut 🌸</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 8
+========================= -->
+
+<section class="slide" id="slide8">
+
+    <div class="number">08 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>Pesan Kecil 💌</h1>
+
+    <p class="quote">
+        Jika suatu hari kamu merasa tidak cukup baik,
+        <br>
+        ingatlah bahwa ada seseorang
+        <br>
+        yang melihat begitu banyak hal indah dalam dirimu.
+        <br><br>
+        <span>Dan orang itu adalah aku.</span>
+    </p>
+
+    <div class="buttons">
+        <button onclick="prevSlide()">←</button>
+        <button onclick="nextSlide()">Kejutan terakhir 🎁</button>
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SLIDE 9
+========================= -->
+
+<section class="slide" id="slide9">
+
+    <div class="number">09 / 09</div>
+
+    <div class="flower">
+
+        <div class="stem"></div>
+        <div class="leaf left"></div>
+        <div class="leaf right"></div>
+
+        <div class="bloom">
+
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+            <div class="petal"></div>
+
+            <div class="center"></div>
+
+        </div>
+
+    </div>
+
+    <h1>MY GIRL 🌸</h1>
+
+    <p class="quote">
+
+        Dari bunga pertama sampai bunga terakhir,
+        <br>
+        ada satu hal yang tidak berubah...
+        <br><br>
+
+        <span>Aku sayang kamu. ❤️</span>
+
+        <br><br>
+
+        Semoga bunga ini terus mekar,
+        <br>
+        seperti rasa sayangku yang terus tumbuh.
+
+        <br><br>
+
+        <b>Jangan tinggalin aku ya. 🥺❤️</b>
+
+    </p>
+
+    <div class="buttons">
+
+        <button onclick="prevSlide()">
+            ← Kembali
+        </button>
+
+        <button onclick="restart()">
+            🌸 Dari Awal
+        </button>
+
+    </div>
+
+</section>
+
+
+<div class="music">
+    🎵 Lagu untuk My Girl
+</div>
+
+
+<script>
+
+/* =========================
+   BINTANG
+========================= */
+
+for(let i=0;i<90;i++){
+
+    const star=document.createElement("div");
+
+    star.className="star";
+
+    star.style.left=
+        Math.random()*100+"%";
+
+    star.style.top=
+        Math.random()*100+"%";
+
+    star.style.animationDelay=
+        Math.random()*3+"s";
+
+    document
+        .getElementById("stars")
+        .appendChild(star);
+}
+
+
+/* =========================
+   SLIDE SYSTEM
+========================= */
+
+let current=1;
+
+const total=9;
+
+function showSlide(newSlide){
+
+    if(newSlide<1)
+        newSlide=total;
+
+    if(newSlide>total)
+        newSlide=1;
+
+    const oldSlide=
+        document.getElementById(
+            "slide"+current
+        );
+
+    const newPage=
+        document.getElementById(
+            "slide"+newSlide
+        );
+
+    oldSlide.classList.remove("active");
+
+    oldSlide.classList.add("old");
+
+    newPage.classList.remove("old");
+
+    newPage.classList.add("active");
+
+    current=newSlide;
+}
+
+
+function nextSlide(){
+
+    showSlide(current+1);
+
+}
+
+
+function prevSlide(){
+
+    showSlide(current-1);
+
+}
+
+
+function restart(){
+
+    showSlide(1);
+
+}
+
+
+/* =========================
+   MUSIK
+========================= */
+
+function startMusic(){
+
+    const music=
+        document.getElementById("music");
+
+    music.volume=.65;
+
+    music.play().catch(()=>{
+        alert(
+            "Tekan tombol sekali lagi untuk memulai musik ❤️"
+        );
+    });
+
+}
+
+
+/* =========================
+   HATI TERBANG
+========================= */
+
+setInterval(()=>{
+
+    const heart=
+        document.createElement("div");
+
+    heart.className="heart";
+
+    const hearts=[
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "🌸",
+        "🌷"
+    ];
+
+    heart.innerHTML=
+        hearts[
+            Math.floor(
+                Math.random()*hearts.length
+            )
+        ];
+
+    heart.style.left=
+        Math.random()*100+"%";
+
+    heart.style.animationDuration=
+        (4+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },9000);
+
+},450);
+
+
+/* =========================
+   KEYBOARD
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key==="ArrowRight")
+            nextSlide();
+
+        if(e.key==="ArrowLeft")
+            prevSlide();
+
+    }
+);
+
+</script>
+
+</body>
+</html>
+```
