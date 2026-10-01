@@ -10,13 +10,13 @@
 <style>
 
 /* =====================================================
-   DASAR
+   RESET
 ===================================================== */
 
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
 html{
@@ -25,92 +25,134 @@ html{
 
 body{
     font-family:Arial, Helvetica, sans-serif;
-    background:#050005;
+    background:#030003;
     color:white;
     overflow-x:hidden;
 }
 
-/* BACKGROUND GLOW */
+
+/* =====================================================
+   BACKGROUND
+===================================================== */
 
 body::before{
     content:"";
     position:fixed;
     inset:-50%;
-    z-index:-10;
+    z-index:-20;
 
     background:
-        radial-gradient(circle at 20% 20%,
-        rgba(255,0,110,.30),
-        transparent 25%),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(255,0,120,.28),
+            transparent 25%
+        ),
 
-        radial-gradient(circle at 80% 70%,
-        rgba(255,40,150,.22),
-        transparent 30%),
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(255,50,150,.20),
+            transparent 25%
+        ),
 
-        radial-gradient(circle at 50% 100%,
-        rgba(170,0,80,.20),
-        transparent 30%);
+        radial-gradient(
+            circle at 50% 90%,
+            rgba(190,0,90,.20),
+            transparent 30%
+        );
 
-    animation:bgMove 12s infinite alternate;
+    animation:
+        backgroundMove
+        12s
+        ease-in-out
+        infinite
+        alternate;
 }
 
-@keyframes bgMove{
-
-    0%{
-        transform:translate(0,0) rotate(0);
-    }
-
-    100%{
-        transform:translate(5%,4%) rotate(5deg);
-    }
-}
-
-/* BINTANG */
-
-.stars{
-    position:fixed;
-    inset:0;
-    z-index:-8;
-
-    background-image:
-        radial-gradient(circle,#fff 1px,transparent 1px);
-
-    background-size:70px 70px;
-
-    opacity:.25;
-
-    animation:starsMove 20s linear infinite;
-}
-
-@keyframes starsMove{
+@keyframes backgroundMove{
 
     from{
-        background-position:0 0;
+        transform:
+            translate(0,0)
+            rotate(0deg);
     }
 
     to{
-        background-position:0 140px;
+        transform:
+            translate(5%,5%)
+            rotate(7deg);
     }
 }
 
 
 /* =====================================================
-   FLOATING
+   STARS
+===================================================== */
+
+.stars{
+    position:fixed;
+    inset:0;
+
+    z-index:-15;
+
+    background-image:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.9)
+            1px,
+            transparent 1px
+        );
+
+    background-size:70px 70px;
+
+    opacity:.25;
+
+    animation:
+        starsMove
+        20s
+        linear
+        infinite;
+}
+
+@keyframes starsMove{
+
+    from{
+        background-position:
+            0 0;
+    }
+
+    to{
+        background-position:
+            0 140px;
+    }
+}
+
+
+/* =====================================================
+   FLOATING HEART / FLOWER
 ===================================================== */
 
 .floating{
     position:fixed;
-    bottom:-50px;
-    pointer-events:none;
-    z-index:50;
 
-    animation:floatUp linear forwards;
+    bottom:-60px;
+
+    pointer-events:none;
+
+    z-index:100;
+
+    animation:
+        floatingUp
+        linear
+        forwards;
 }
 
-@keyframes floatUp{
+@keyframes floatingUp{
 
     0%{
-        transform:translateY(0) rotate(0);
+        transform:
+            translateY(0)
+            rotate(0deg);
+
         opacity:0;
     }
 
@@ -140,186 +182,233 @@ body::before{
     padding:
         35px
         18px
-        50px;
+        60px;
 
     position:relative;
+
     z-index:2;
 }
 
 .page.active{
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
 }
 
 
 /* =====================================================
-   HALAMAN LOGIN
+   LOGIN PAGE
 ===================================================== */
 
-.login{
+.login-page{
     justify-content:center;
+
     text-align:center;
 }
 
 
-/* BUNGA BESAR */
+/* =====================================================
+   MAIN FLOWER
+===================================================== */
 
-.flower{
+.main-flower{
     position:relative;
 
-    width:120px;
-    height:150px;
+    width:130px;
+    height:170px;
 
-    margin-bottom:20px;
+    margin-bottom:15px;
 
-    animation:sway 4s ease-in-out infinite;
+    animation:
+        flowerSway
+        4s
+        ease-in-out
+        infinite;
 }
 
-@keyframes sway{
+@keyframes flowerSway{
 
     0%,100%{
         transform:rotate(-5deg);
     }
 
     50%{
-        transform:rotate(5deg)
-        translateY(-7px);
+        transform:
+            rotate(5deg)
+            translateY(-8px);
     }
 }
 
-.stem{
+
+/* STEM */
+
+.flower-stem{
     position:absolute;
 
     width:8px;
-    height:100px;
+    height:110px;
 
-    background:
-        linear-gradient(#65c765,#176b32);
-
-    left:56px;
+    left:61px;
     top:70px;
 
     border-radius:20px;
+
+    background:
+        linear-gradient(
+            #66d36d,
+            #155f2e
+        );
 }
 
-.petal{
+
+/* PETALS */
+
+.flower-petal{
     position:absolute;
 
-    width:65px;
-    height:80px;
+    width:68px;
+    height:82px;
 
     border-radius:
         50% 50% 45% 45%;
 
     background:
         linear-gradient(
-            #ff7db7,
-            #d40061
+            #ff77b5,
+            #c40059
         );
 
     box-shadow:
-        0 0 20px #ff176f;
+        0 0 25px
+        rgba(255,0,120,.8);
 }
 
-.petal.p1{
+.flower-petal:nth-child(2){
     top:0;
-    left:27px;
+    left:31px;
 }
 
-.petal.p2{
-    top:28px;
+.flower-petal:nth-child(3){
+    top:30px;
     left:0;
+
     transform:rotate(-55deg);
 }
 
-.petal.p3{
-    top:28px;
+.flower-petal:nth-child(4){
+    top:30px;
     right:0;
+
     transform:rotate(55deg);
 }
 
-.petal.p4{
-    bottom:5px;
-    left:27px;
+.flower-petal:nth-child(5){
+    bottom:8px;
+    left:31px;
+
     transform:rotate(180deg);
 }
 
-.center{
+
+/* FLOWER CENTER */
+
+.flower-center{
     position:absolute;
 
-    width:38px;
-    height:38px;
+    width:40px;
+    height:40px;
+
+    left:45px;
+    top:40px;
 
     border-radius:50%;
 
-    background:#ffd45b;
-
-    left:41px;
-    top:38px;
+    background:
+        radial-gradient(
+            circle,
+            #fff4a3,
+            #ffc83d
+        );
 
     box-shadow:
-        0 0 20px #ffd45b;
+        0 0 25px #ffd43d;
 }
 
 
-/* JUDUL */
+/* =====================================================
+   TITLE
+===================================================== */
 
 .main-title{
 
     font-size:
-        clamp(38px,9vw,75px);
+        clamp(
+            40px,
+            9vw,
+            78px
+        );
 
-    color:#ff599f;
+    color:#ff579f;
 
     text-shadow:
         0 0 10px #ff006f,
         0 0 30px #ff006f,
         0 0 60px rgba(255,0,120,.6);
 
-    animation:titlePulse 2s infinite;
+    animation:
+        titlePulse
+        2s
+        infinite;
 }
 
 @keyframes titlePulse{
 
     50%{
-        transform:scale(1.04);
+        transform:
+            scale(1.05);
     }
 }
 
 .date{
 
-    margin-top:10px;
+    margin-top:12px;
 
-    font-size:15px;
+    color:#ffd1e3;
 
     letter-spacing:4px;
 
-    color:#ffd3e5;
+    font-size:14px;
 }
 
 .intro{
 
-    max-width:650px;
+    max-width:680px;
 
     margin:
         20px
         auto
-        25px;
+        30px;
 
-    color:#ffc4dc;
+    color:#ffc8df;
 
-    line-height:1.7;
+    line-height:1.8;
+
+    font-size:16px;
 }
 
 
 /* =====================================================
-   KODE FOTO
+   CODE BOX
 ===================================================== */
 
-.code-container{
+.code-box{
 
-    width:min(700px,100%);
+    width:min(
+        720px,
+        100%
+    );
 
     padding:25px;
 
@@ -332,14 +421,15 @@ body::before{
     background:
         rgba(255,255,255,.06);
 
-    backdrop-filter:blur(15px);
+    backdrop-filter:
+        blur(15px);
 
     box-shadow:
-        0 0 40px
+        0 0 50px
         rgba(255,0,120,.15);
 }
 
-.code-container h2{
+.code-box h2{
 
     text-align:center;
 
@@ -349,7 +439,9 @@ body::before{
 }
 
 
-/* GRID */
+/* =====================================================
+   CODE PHOTO
+===================================================== */
 
 .photo-grid{
 
@@ -358,11 +450,8 @@ body::before{
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:13px;
+    gap:14px;
 }
-
-
-/* FOTO KODE */
 
 .code-photo{
 
@@ -370,15 +459,18 @@ body::before{
 
     aspect-ratio:1/1;
 
-    border-radius:18px;
+    border-radius:20px;
 
     overflow:hidden;
 
     cursor:pointer;
 
-    border:2px solid transparent;
+    border:
+        2px solid
+        transparent;
 
-    transition:.3s;
+    transition:
+        .35s;
 }
 
 .code-photo:hover{
@@ -387,10 +479,11 @@ body::before{
         scale(1.05)
         rotate(1deg);
 
-    border-color:#ff4f9a;
+    border-color:
+        #ff4f9a;
 
     box-shadow:
-        0 0 25px
+        0 0 30px
         rgba(255,0,120,.5);
 }
 
@@ -406,93 +499,102 @@ body::before{
 
 .code-photo.selected{
 
-    border-color:#ff1675;
+    border-color:#ff176f;
 
     box-shadow:
-        0 0 30px #ff1675;
+        0 0 35px
+        #ff176f;
 }
 
-.number{
+
+/* NUMBER */
+
+.selected-number{
 
     position:absolute;
 
     top:8px;
     right:8px;
 
-    width:34px;
-    height:34px;
+    width:35px;
+    height:35px;
+
+    border-radius:50%;
+
+    background:#ff176f;
 
     display:flex;
 
     align-items:center;
     justify-content:center;
 
-    border-radius:50%;
-
-    background:#ff176f;
-
     font-weight:bold;
 
     opacity:0;
 }
 
-.code-photo.selected .number{
+.code-photo.selected
+.selected-number{
     opacity:1;
 }
 
 
 /* STATUS */
 
-.status{
+#status{
 
-    min-height:80px;
+    min-height:100px;
 
     margin-top:20px;
 
     text-align:center;
 
-    line-height:1.7;
+    line-height:1.8;
 
-    color:#ffd0e4;
+    color:#ffd1e4;
 }
 
-.status.correct{
-    color:#8affc2;
+.status-correct{
+    color:#8dffc4 !important;
 }
 
-.status.wrong{
-    color:#ff9fc4;
+.status-wrong{
+    color:#ff9cbd !important;
 }
 
 
-/* BUTTON */
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .btn{
 
-    border:none;
+    margin-top:15px;
 
     padding:
         13px
-        25px;
+        26px;
+
+    border:none;
 
     border-radius:30px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff126d,
-            #ff72b3
-        );
 
     color:white;
 
     font-weight:bold;
 
+    background:
+        linear-gradient(
+            90deg,
+            #ff106d,
+            #ff72b4
+        );
+
     cursor:pointer;
 
     box-shadow:
         0 0 20px
-        rgba(255,0,110,.4);
+        rgba(255,0,110,.45);
 
     transition:.3s;
 }
@@ -500,65 +602,77 @@ body::before{
 .btn:hover{
 
     transform:
-        scale(1.06);
+        scale(1.07);
 
     box-shadow:
-        0 0 30px
+        0 0 35px
         rgba(255,0,110,.7);
 }
 
 
 /* =====================================================
-   HALAMAN KENANGAN
+   MEMORY PAGE
 ===================================================== */
 
-.memory{
+.memory-page{
 
     text-align:center;
 
     justify-content:flex-start;
 }
 
-.memory h1{
+.memory-page h1{
 
     font-size:
-        clamp(32px,7vw,60px);
+        clamp(
+            35px,
+            8vw,
+            62px
+        );
 
-    color:#ff65a9;
+    color:#ff62a6;
 
     text-shadow:
-        0 0 20px #ff176f;
+        0 0 20px
+        #ff1675;
 }
 
 .memory-subtitle{
 
     margin:
-        10px
+        12px
         0
         30px;
 
     color:#ffd0e4;
+
+    line-height:1.7;
 }
 
 
-/* GRID 9 FOTO */
+/* =====================================================
+   MEMORY GRID 9
+===================================================== */
 
 .memory-grid{
 
-    width:min(1050px,100%);
+    width:min(
+        1050px,
+        100%
+    );
 
     display:grid;
 
     grid-template-columns:
         repeat(3,1fr);
 
-    gap:18px;
+    gap:20px;
 }
 
 
 /* CARD */
 
-.card{
+.memory-card{
 
     padding:12px;
 
@@ -569,16 +683,18 @@ body::before{
 
     border:
         1px solid
-        rgba(255,90,170,.25);
+        rgba(255,90,170,.3);
 
     cursor:pointer;
 
-    transition:.4s;
+    backdrop-filter:
+        blur(10px);
 
-    backdrop-filter:blur(10px);
+    transition:
+        .4s;
 }
 
-.card:hover{
+.memory-card:hover{
 
     transform:
         translateY(-10px)
@@ -589,7 +705,7 @@ body::before{
         rgba(255,0,120,.35);
 }
 
-.card img{
+.memory-card img{
 
     width:100%;
 
@@ -597,10 +713,10 @@ body::before{
 
     object-fit:cover;
 
-    border-radius:17px;
+    border-radius:18px;
 }
 
-.card-icon{
+.memory-icon{
 
     font-size:32px;
 
@@ -609,14 +725,11 @@ body::before{
         0;
 }
 
-.card h3{
+.memory-card h3{
 
-    color:#ff91bd;
+    margin-top:8px;
 
-    margin:
-        7px
-        0
-        5px;
+    color:#ff91bc;
 }
 
 
@@ -626,11 +739,13 @@ body::before{
 
 .modal{
 
+    display:none;
+
     position:fixed;
 
     inset:0;
 
-    display:none;
+    z-index:300;
 
     align-items:center;
     justify-content:center;
@@ -639,35 +754,39 @@ body::before{
 
     background:
         rgba(0,0,0,.9);
-
-    z-index:200;
 }
 
-.modal.show{
+.modal.active{
     display:flex;
 }
 
-.modal-box{
+.modal-content{
 
-    width:min(600px,100%);
+    width:min(
+        620px,
+        100%
+    );
 
-    padding:18px;
+    padding:20px;
 
-    border-radius:25px;
+    border-radius:28px;
 
-    background:#16000d;
+    background:#15000c;
 
     border:
         1px solid
         #ff4f9a;
 
     box-shadow:
-        0 0 50px
+        0 0 60px
         rgba(255,0,120,.5);
 
     text-align:center;
 
-    animation:modalIn .4s;
+    animation:
+        modalIn
+        .4s
+        ease;
 }
 
 @keyframes modalIn{
@@ -683,40 +802,40 @@ body::before{
     }
 }
 
-.modal-box img{
+.modal-content img{
 
     width:100%;
 
-    max-height:450px;
+    max-height:470px;
 
     object-fit:contain;
 
-    border-radius:18px;
+    border-radius:20px;
 }
 
-.modal-box h2{
-
-    color:#ff71ad;
+.modal-content h2{
 
     margin:
         15px
         0
         8px;
+
+    color:#ff71ad;
 }
 
-.modal-box p{
+.modal-content p{
 
-    color:#ffd3e5;
+    color:#ffd2e4;
 
-    line-height:1.7;
+    line-height:1.8;
 }
 
 
 /* =====================================================
-   SLIDE PESAN
+   FINAL SLIDE
 ===================================================== */
 
-.final{
+.final-page{
 
     justify-content:center;
 
@@ -725,11 +844,12 @@ body::before{
 
 .final-flower{
 
-    font-size:80px;
+    font-size:85px;
 
     animation:
         flowerPulse
-        2s infinite;
+        2s
+        infinite;
 }
 
 @keyframes flowerPulse{
@@ -741,16 +861,20 @@ body::before{
     }
 }
 
-.final-title{
+.shake-word{
 
     font-size:
-        clamp(32px,8vw,70px);
+        clamp(
+            34px,
+            8vw,
+            72px
+        );
 
-    color:#ff579f;
+    color:#ff559f;
 
     text-shadow:
         0 0 10px #ff006f,
-        0 0 35px #ff006f;
+        0 0 40px #ff006f;
 
     animation:
         shake
@@ -785,7 +909,7 @@ body::before{
         20px
         auto;
 
-    color:#ffd4e6;
+    color:#ffd3e6;
 
     font-size:18px;
 
@@ -793,9 +917,9 @@ body::before{
 }
 
 
-/* DOT */
+/* DOTS */
 
-.dots{
+.slide-dots{
 
     display:flex;
 
@@ -821,55 +945,72 @@ body::before{
     background:#ff4f9a;
 
     box-shadow:
-        0 0 12px #ff4f9a;
+        0 0 12px
+        #ff4f9a;
 }
 
 
 /* =====================================================
-   PENUTUP FOTO
+   CLOSING PAGE FOTO
 ===================================================== */
 
-.closing{
+.closing-page{
 
     justify-content:center;
 
     text-align:center;
 }
 
-.closing h1{
+.closing-page h1{
 
     font-size:
-        clamp(32px,7vw,65px);
+        clamp(
+            35px,
+            8vw,
+            65px
+        );
 
-    color:#ff65a9;
+    color:#ff67a9;
 
     text-shadow:
         0 0 15px #ff1675,
         0 0 40px #ff1675;
 
-    animation:closingGlow 2s infinite alternate;
+    animation:
+        closingGlow
+        2s
+        infinite alternate;
 }
 
 @keyframes closingGlow{
 
     from{
         text-shadow:
-            0 0 10px #ff1675;
+            0 0 10px
+            #ff1675;
     }
 
     to{
         text-shadow:
-            0 0 15px #ff1675,
-            0 0 50px #ff1675;
+            0 0 15px
+            #ff1675,
+
+            0 0 50px
+            #ff1675;
     }
 }
 
 
-/* BINGKAI FOTO */
+/* =====================================================
+   FOTO PENUTUP
+===================================================== */
 
-.closing-frame{
+.closing-photo-frame{
 
-    width:min(620px,95%);
+    width:min(
+        650px,
+        95%
+    );
 
     margin:
         30px
@@ -885,12 +1026,14 @@ body::before{
             #ff126d,
             #ffacd1,
             #ff126d,
-            #ff68aa
+            #ff65a9
         );
 
     box-shadow:
-        0 0 30px #ff1675,
-        0 0 70px
+        0 0 30px
+        #ff1675,
+
+        0 0 80px
         rgba(255,0,120,.4);
 
     animation:
@@ -915,15 +1058,15 @@ body::before{
     }
 }
 
-.closing-frame img{
+.closing-photo-frame img{
 
     width:100%;
 
     max-height:70vh;
 
-    display:block;
-
     object-fit:contain;
+
+    display:block;
 
     border-radius:22px;
 
@@ -931,24 +1074,26 @@ body::before{
 }
 
 
-/* PESAN PENUTUP */
+/* =====================================================
+   CLOSING MESSAGE
+===================================================== */
 
 .closing-message{
 
-    max-width:680px;
+    max-width:700px;
 
-    color:#ffd4e6;
-
-    line-height:1.8;
+    color:#ffd5e7;
 
     font-size:18px;
+
+    line-height:1.8;
 }
 
 .closing-message strong{
 
-    color:#ff79b2;
+    color:#ff78b2;
 
-    font-size:23px;
+    font-size:24px;
 }
 
 .closing-date{
@@ -969,7 +1114,7 @@ body::before{
 
 
 /* =====================================================
-   RESPONSIVE
+   MOBILE
 ===================================================== */
 
 @media(max-width:700px){
@@ -986,26 +1131,25 @@ body::before{
             repeat(2,1fr);
     }
 
-    .memory-grid .card{
+    .memory-card{
 
         padding:8px;
     }
 
-    .card h3{
+    .memory-card h3{
 
         font-size:14px;
     }
 
-    .final-title{
+    .shake-word{
 
-        font-size:34px;
+        font-size:35px;
     }
-
 }
 
 @media(max-width:430px){
 
-    .code-container{
+    .code-box{
 
         padding:15px;
     }
@@ -1020,11 +1164,10 @@ body::before{
         gap:10px;
     }
 
-    .closing-frame{
+    .closing-photo-frame{
 
         padding:7px;
     }
-
 }
 
 </style>
@@ -1033,59 +1176,73 @@ body::before{
 
 <body>
 
+
+<!-- =====================================================
+     STARS
+===================================================== -->
+
 <div class="stars"></div>
 
 
+
 <!-- =====================================================
-     HALAMAN 1 — KODE FOTO
+     LOGIN / KODE
 ===================================================== -->
 
 <section
     id="loginPage"
-    class="page login active"
+    class="page login-page active"
 >
 
-    <!-- BUNGA -->
 
-    <div class="flower">
+    <!-- FLOWER -->
 
-        <div class="stem"></div>
+    <div class="main-flower">
 
-        <div class="petal p1"></div>
-        <div class="petal p2"></div>
-        <div class="petal p3"></div>
-        <div class="petal p4"></div>
+        <div class="flower-stem"></div>
 
-        <div class="center"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+
+        <div class="flower-center"></div>
 
     </div>
 
 
     <h1 class="main-title">
+
         MY GIRL ❤️
+
     </h1>
 
 
     <div class="date">
+
         01 OKTOBER — MY GIRL DAY
+
     </div>
 
 
     <p class="intro">
 
-        Ada sesuatu yang aku buat khusus untuk kamu.
+        Aku membuat halaman kecil ini khusus untuk kamu.
         <br>
 
-        Sebelum masuk, pilih 4 foto
-        dengan urutan yang benar. ❤️
+        Sebelum masuk, kamu harus menemukan
+        kode rahasia dari foto kita. ❤️
 
     </p>
 
 
-    <div class="code-container">
+    <div class="code-box">
+
 
         <h2>
-            🔐 KODE RAHASIA KITA
+
+            🔐 PILIH KODE FOTO
+
         </h2>
 
 
@@ -1095,12 +1252,14 @@ body::before{
             <div
                 class="code-photo"
                 data-code="foto1"
-                onclick="choosePhoto(this)"
+                onclick="chooseCode(this)"
             >
 
                 <img src="foto1.jpg">
 
-                <span class="number"></span>
+                <span
+                    class="selected-number"
+                ></span>
 
             </div>
 
@@ -1108,12 +1267,14 @@ body::before{
             <div
                 class="code-photo"
                 data-code="foto2"
-                onclick="choosePhoto(this)"
+                onclick="chooseCode(this)"
             >
 
                 <img src="foto2.jpg">
 
-                <span class="number"></span>
+                <span
+                    class="selected-number"
+                ></span>
 
             </div>
 
@@ -1121,12 +1282,14 @@ body::before{
             <div
                 class="code-photo"
                 data-code="foto3"
-                onclick="choosePhoto(this)"
+                onclick="chooseCode(this)"
             >
 
                 <img src="foto3.jpg">
 
-                <span class="number"></span>
+                <span
+                    class="selected-number"
+                ></span>
 
             </div>
 
@@ -1134,12 +1297,14 @@ body::before{
             <div
                 class="code-photo"
                 data-code="foto4"
-                onclick="choosePhoto(this)"
+                onclick="chooseCode(this)"
             >
 
                 <img src="foto4.jpg">
 
-                <span class="number"></span>
+                <span
+                    class="selected-number"
+                ></span>
 
             </div>
 
@@ -1147,12 +1312,14 @@ body::before{
             <div
                 class="code-photo"
                 data-code="foto5"
-                onclick="choosePhoto(this)"
+                onclick="chooseCode(this)"
             >
 
                 <img src="foto5.jpg">
 
-                <span class="number"></span>
+                <span
+                    class="selected-number"
+                ></span>
 
             </div>
 
@@ -1160,12 +1327,14 @@ body::before{
             <div
                 class="code-photo"
                 data-code="foto6"
-                onclick="choosePhoto(this)"
+                onclick="chooseCode(this)"
             >
 
                 <img src="foto6.jpg">
 
-                <span class="number"></span>
+                <span
+                    class="selected-number"
+                ></span>
 
             </div>
 
@@ -1175,212 +1344,273 @@ body::before{
 
         <div
             id="status"
-            class="status"
         >
+
             Pilih 4 foto untuk masuk ❤️
+
         </div>
 
 
     </div>
+
 
 </section>
 
 
 
 <!-- =====================================================
-     HALAMAN 2 — 9 KENANGAN
+     MEMORY PAGE — 9 FOTO
 ===================================================== -->
 
 <section
     id="memoryPage"
-    class="page memory"
+    class="page memory-page"
 >
 
 
-    <div class="flower">
+    <div class="main-flower">
 
-        <div class="stem"></div>
+        <div class="flower-stem"></div>
 
-        <div class="petal p1"></div>
-        <div class="petal p2"></div>
-        <div class="petal p3"></div>
-        <div class="petal p4"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
+        <div class="flower-petal"></div>
 
-        <div class="center"></div>
+        <div class="flower-center"></div>
 
     </div>
 
 
     <h1>
+
         🌸 CERITA KITA 🌸
+
     </h1>
 
 
     <p class="memory-subtitle">
-        Klik setiap foto untuk membuka pesan kecil dariku ❤️
+
+        Klik setiap bunga untuk membuka
+        cerita kecil tentang kita. ❤️
+
     </p>
 
 
     <div class="memory-grid">
 
 
+        <!-- 1 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(1)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌷
+
             </div>
 
             <img src="foto1.jpg">
 
             <h3>
+
                 Awal Cerita
+
             </h3>
 
         </div>
 
 
+        <!-- 2 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(2)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌸
+
             </div>
 
             <img src="foto2.jpg">
 
             <h3>
+
                 Senyummu
+
             </h3>
 
         </div>
 
 
+        <!-- 3 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(3)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌹
+
             </div>
 
             <img src="foto3.jpg">
 
             <h3>
+
                 Favoritku
+
             </h3>
 
         </div>
 
 
+        <!-- 4 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(4)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌺
+
             </div>
 
             <img src="foto4.jpg">
 
             <h3>
+
                 Moment Kita
+
             </h3>
 
         </div>
 
 
+        <!-- 5 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(5)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌷
+
             </div>
 
             <img src="foto5.jpg">
 
             <h3>
+
                 Bahagia
+
             </h3>
 
         </div>
 
 
+        <!-- 6 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(6)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌸
+
             </div>
 
             <img src="foto6.jpg">
 
             <h3>
+
                 Kesayanganku
+
             </h3>
 
         </div>
 
 
+        <!-- 7 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(7)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌹
+
             </div>
 
             <img src="foto1.jpg">
 
             <h3>
+
                 Untukmu
+
             </h3>
 
         </div>
 
 
+        <!-- 8 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(8)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌺
+
             </div>
 
             <img src="foto2.jpg">
 
             <h3>
+
                 Selamanya
+
             </h3>
 
         </div>
 
 
+        <!-- 9 -->
+
         <div
-            class="card"
+            class="memory-card"
             onclick="openMemory(9)"
         >
 
-            <div class="card-icon">
+            <div class="memory-icon">
+
                 🌷
+
             </div>
 
             <img src="foto3.jpg">
 
             <h3>
+
                 Kejutan
+
             </h3>
 
         </div>
@@ -1391,10 +1621,11 @@ body::before{
 
     <button
         class="btn"
-        style="margin-top:35px"
-        onclick="openFinal()"
+        onclick="showFinalPage()"
     >
+
         💌 BUKA PESAN TERAKHIR
+
     </button>
 
 
@@ -1403,36 +1634,42 @@ body::before{
 
 
 <!-- =====================================================
-     MODAL FOTO
+     MODAL MEMORY
 ===================================================== -->
 
 <div
-    id="modal"
+    id="memoryModal"
     class="modal"
-    onclick="closeModal(event)"
 >
 
-    <div
-        class="modal-box"
-        onclick="event.stopPropagation()"
-    >
+    <div class="modal-content">
+
 
         <img
             id="modalImage"
             src=""
         >
 
-        <h2 id="modalTitle"></h2>
 
-        <p id="modalText"></p>
+        <h2
+            id="modalTitle"
+        ></h2>
+
+
+        <p
+            id="modalText"
+        ></p>
+
 
         <button
             class="btn"
-            style="margin-top:18px"
-            onclick="closeModal()"
+            onclick="closeMemory()"
         >
+
             TUTUP ❤️
+
         </button>
+
 
     </div>
 
@@ -1441,48 +1678,50 @@ body::before{
 
 
 <!-- =====================================================
-     HALAMAN 3 — SLIDE PESAN
+     FINAL MESSAGE SLIDES
 ===================================================== -->
 
 <section
     id="finalPage"
-    class="page final"
+    class="page final-page"
 >
 
 
     <div class="final-flower">
+
         🌸
+
     </div>
 
 
-    <h1
-        id="finalTitle"
-        class="final-title"
-    >
-    </h1>
+    <div
+        id="shakeWord"
+        class="shake-word"
+    ></div>
 
 
     <p
         id="finalText"
         class="final-text"
-    >
-    </p>
+    ></p>
 
 
     <div
-        id="dots"
-        class="dots"
-    >
-    </div>
+        id="slideDots"
+        class="slide-dots"
+    ></div>
 
 
     <div>
+
 
         <button
             class="btn"
             onclick="previousSlide()"
         >
+
             ◀
+
         </button>
 
 
@@ -1490,8 +1729,11 @@ body::before{
             class="btn"
             onclick="nextSlide()"
         >
+
             NEXT ❤️
+
         </button>
+
 
     </div>
 
@@ -1501,62 +1743,78 @@ body::before{
 
 
 <!-- =====================================================
-     HALAMAN 4 — FOTO PENUTUP
+     PENUTUP — 1 FOTO
 ===================================================== -->
 
 <section
     id="closingPage"
-    class="page closing"
+    class="page closing-page"
 >
 
 
     <div class="final-flower">
+
         🌹
+
     </div>
 
 
     <h1>
+
         TERIMA KASIH ❤️
+
     </h1>
 
 
-    <div class="closing-frame">
+    <!-- FOTO TERAKHIR -->
+
+    <div class="closing-photo-frame">
+
 
         <!--
-        FOTO TERAKHIR
-        GANTI NAMA FOTO DI SINI
+            GANTI FOTO TERAKHIR
+            DENGAN:
+            foto-penutup.jpg
         -->
 
         <img
             src="foto-penutup.jpg"
-            alt="Foto terakhir kita"
+            alt="Foto penutup"
         >
+
 
     </div>
 
 
     <p class="closing-message">
 
+
         Terima kasih sudah menjadi
         bagian terindah dalam ceritaku.
 
         <br><br>
 
+
         Mungkin website ini sederhana,
-        tapi semua yang ada di dalamnya
+        tetapi setiap bagian di dalamnya
         dibuat dengan rasa sayang.
 
         <br><br>
 
-        Semoga setiap kali melihat foto ini,
-        kamu selalu ingat bahwa ada seseorang
-        yang sangat menyayangimu.
+
+        Semoga ketika kamu melihat foto ini,
+        kamu selalu ingat bahwa kamu
+        sangat berarti untukku.
 
         <br><br>
 
+
         <strong>
+
             AKU SAYANG KAMU ❤️
+
         </strong>
+
 
     </p>
 
@@ -1569,10 +1827,12 @@ body::before{
 
 
     <button
-        class="btn restart"
+        class="btn"
         onclick="location.reload()"
     >
+
         ❤️ ULANGI DARI AWAL
+
     </button>
 
 
@@ -1581,7 +1841,7 @@ body::before{
 
 
 <!-- =====================================================
-     MUSIK
+     AUDIO
 ===================================================== -->
 
 <audio
@@ -1589,8 +1849,7 @@ body::before{
     src="lagu.mp3"
     loop
     preload="auto"
->
-</audio>
+></audio>
 
 
 
@@ -1600,48 +1859,38 @@ body::before{
    KODE FOTO
 ===================================================== */
 
-/*
-   URUTAN KODE SAAT INI:
-
-   FOTO 2
-   FOTO 5
-   FOTO 1
-   FOTO 6
-
-   Kalau ingin mengganti,
-   ubah bagian di bawah.
-*/
-
 const correctCode = [
+
     "foto2",
     "foto5",
     "foto1",
     "foto6"
+
 ];
 
-let selectedCode = [];
+let enteredCode = [];
 
 
 /* =====================================================
    PILIH FOTO
 ===================================================== */
 
-function choosePhoto(element){
+function chooseCode(element){
 
     const code =
         element.dataset.code;
 
 
-    /* Jangan pilih foto yang sama */
-
     if(
-        selectedCode.includes(code)
+        enteredCode.includes(code)
     ){
+
         return;
+
     }
 
 
-    selectedCode.push(code);
+    enteredCode.push(code);
 
 
     element.classList.add(
@@ -1650,15 +1899,14 @@ function choosePhoto(element){
 
 
     element.querySelector(
-        ".number"
+        ".selected-number"
     ).textContent =
-        selectedCode.length;
+        enteredCode.length;
 
-
-    /* Kalau sudah 4 */
 
     if(
-        selectedCode.length === 4
+        enteredCode.length ===
+        correctCode.length
     ){
 
         checkCode();
@@ -1675,9 +1923,10 @@ function choosePhoto(element){
 function checkCode(){
 
     const benar =
-        selectedCode.every(
+        enteredCode.every(
             (value,index) =>
-                value === correctCode[index]
+            value ===
+            correctCode[index]
         );
 
 
@@ -1690,51 +1939,61 @@ function checkCode(){
     if(benar){
 
         status.className =
-            "status correct";
+            "status-correct";
 
 
         status.innerHTML = `
+
             💖 KODE BENAR 💖
+
             <br>
-            Selamat datang MY GIRL ❤️
+
+            Silahkan masuk,
+            MY GIRL ❤️
+
         `;
 
 
         startMusic();
 
 
-        setTimeout(() => {
+        setTimeout(
+            () => {
 
-            document
-                .getElementById(
-                    "loginPage"
-                )
-                .classList.remove(
-                    "active"
+                document
+                    .getElementById(
+                        "loginPage"
+                    )
+                    .classList
+                    .remove(
+                        "active"
+                    );
+
+
+                document
+                    .getElementById(
+                        "memoryPage"
+                    )
+                    .classList
+                    .add(
+                        "active"
+                    );
+
+
+                window.scrollTo(
+                    0,
+                    0
                 );
 
-
-            document
-                .getElementById(
-                    "memoryPage"
-                )
-                .classList.add(
-                    "active"
-                );
-
-
-            window.scrollTo(
-                0,
-                0
-            );
-
-        },1200);
+            },
+            1200
+        );
 
 
     }else{
 
         status.className =
-            "status wrong";
+            "status-wrong";
 
 
         status.innerHTML = `
@@ -1743,20 +2002,27 @@ function checkCode(){
 
             <br><br>
 
-            Tenang, kode yang benar
-            akan diberikan otomatis ❤️
+            Tenang,
+            kode yang benar
+            akan diberikan otomatis.
 
             <br><br>
 
             <strong>
 
-            1️⃣ FOTO 2
+            1️⃣ FOTO 2 ❤️
+
             <br>
-            2️⃣ FOTO 5
+
+            2️⃣ FOTO 5 🌸
+
             <br>
-            3️⃣ FOTO 1
+
+            3️⃣ FOTO 1 💕
+
             <br>
-            4️⃣ FOTO 6
+
+            4️⃣ FOTO 6 🌹
 
             </strong>
 
@@ -1766,8 +2032,11 @@ function checkCode(){
                 class="btn"
                 onclick="resetCode()"
             >
+
                 COBA LAGI
+
             </button>
+
         `;
 
     }
@@ -1781,46 +2050,48 @@ function checkCode(){
 
 function resetCode(){
 
-    selectedCode = [];
+    enteredCode = [];
 
 
     document
         .querySelectorAll(
             ".code-photo"
         )
-        .forEach(photo => {
+        .forEach(
+            photo => {
 
-            photo.classList.remove(
-                "selected"
-            );
-
-            photo.querySelector(
-                ".number"
-            ).textContent = "";
-
-        });
+                photo.classList
+                    .remove(
+                        "selected"
+                    );
 
 
-    document
-        .getElementById(
-            "status"
-        )
-        .className =
-            "status";
+                photo.querySelector(
+                    ".selected-number"
+                ).textContent = "";
+
+            }
+        );
 
 
     document
         .getElementById(
             "status"
-        )
-        .innerHTML =
-            "Pilih 4 foto untuk masuk ❤️";
+        ).className = "";
+
+
+    document
+        .getElementById(
+            "status"
+        ).innerHTML =
+
+        "Pilih 4 foto untuk masuk ❤️";
 
 }
 
 
 /* =====================================================
-   MUSIK
+   MUSIC
 ===================================================== */
 
 function startMusic(){
@@ -1831,14 +2102,17 @@ function startMusic(){
         );
 
 
-    music.volume = 0.7;
+    music.volume =
+        0.7;
 
 
     music.play().catch(
         () => {
+
             console.log(
                 "Browser menunggu interaksi."
             );
+
         }
     );
 
@@ -1846,70 +2120,105 @@ function startMusic(){
 
 
 /* =====================================================
-   DATA 9 KENANGAN
+   9 MEMORY
 ===================================================== */
 
 const memories = {
 
     1:{
         image:"foto1.jpg",
-        title:"Awal Cerita 🌷",
+
+        title:
+        "Awal Cerita 🌷",
+
         text:
-        "Semua cerita indah selalu punya sebuah awal. Aku senang karena salah satu cerita itu adalah tentang kita."
+        "Semua cerita yang indah selalu punya sebuah awal. Aku senang karena salah satu cerita itu adalah tentang kita."
     },
+
 
     2:{
         image:"foto2.jpg",
-        title:"Senyummu 🌸",
+
+        title:
+        "Senyummu 🌸",
+
         text:
         "Senyummu adalah salah satu hal sederhana yang selalu berhasil membuat hariku terasa lebih indah."
     },
 
+
     3:{
         image:"foto3.jpg",
-        title:"Favoritku 🌹",
+
+        title:
+        "Favoritku 🌹",
+
         text:
-        "Banyak hal yang aku suka, tetapi kamu tetap punya tempat yang berbeda di hatiku."
+        "Banyak hal yang aku suka, tapi kamu tetap punya tempat yang berbeda di hatiku."
     },
+
 
     4:{
         image:"foto4.jpg",
-        title:"Moment Kita 🌺",
+
+        title:
+        "Moment Kita 🌺",
+
         text:
-        "Moment sederhana bersama kamu selalu bisa menjadi kenangan yang sangat berarti."
+        "Beberapa moment mungkin terlihat sederhana, tetapi menjadi sangat berarti ketika dilakukan bersamamu."
     },
+
 
     5:{
         image:"foto5.jpg",
-        title:"Bahagia 🌷",
+
+        title:
+        "Bahagia 🌷",
+
         text:
         "Bahagia tidak selalu membutuhkan sesuatu yang besar. Kadang cukup dengan seseorang yang kita sayangi."
     },
 
+
     6:{
         image:"foto6.jpg",
-        title:"Kesayanganku 🌸",
+
+        title:
+        "Kesayanganku 🌸",
+
         text:
         "Aku ingin kamu tahu bahwa kamu adalah seseorang yang sangat berarti bagiku."
     },
 
+
     7:{
         image:"foto1.jpg",
-        title:"Untukmu 🌹",
+
+        title:
+        "Untukmu 🌹",
+
         text:
-        "Website kecil ini aku buat khusus untuk seseorang yang sangat spesial."
+        "Website kecil ini adalah hadiah sederhana dariku untuk seseorang yang spesial."
     },
+
 
     8:{
         image:"foto2.jpg",
-        title:"Selamanya 🌺",
+
+        title:
+        "Selamanya 🌺",
+
         text:
         "Semoga setelah hari ini masih ada banyak cerita dan kenangan yang bisa kita buat bersama."
     },
 
+
     9:{
         image:"foto3.jpg",
-        title:"Kejutan 🌷",
+
+        title:
+        "Kejutan 🌷",
+
         text:
         "Kalau suatu hari kamu membuka halaman ini lagi, ingat bahwa halaman ini pernah dibuat khusus untukmu."
     }
@@ -1918,7 +2227,7 @@ const memories = {
 
 
 /* =====================================================
-   BUKA MEMORY
+   OPEN MEMORY
 ===================================================== */
 
 function openMemory(index){
@@ -1947,78 +2256,100 @@ function openMemory(index){
 
     document
         .getElementById(
-            "modal"
+            "memoryModal"
         )
-        .classList.add(
-            "show"
+        .classList
+        .add(
+            "active"
         );
 
 }
 
 
 /* =====================================================
-   TUTUP MODAL
+   CLOSE MEMORY
 ===================================================== */
 
-function closeModal(){
+function closeMemory(){
 
     document
         .getElementById(
-            "modal"
+            "memoryModal"
         )
-        .classList.remove(
-            "show"
+        .classList
+        .remove(
+            "active"
         );
 
 }
 
 
 /* =====================================================
-   SLIDE PESAN
+   7 FINAL SLIDES
 ===================================================== */
 
-const slides = [
+const finalSlides = [
 
     {
-        title:"AKU SAYANG KAMU ❤️",
+        title:
+        "AKU SAYANG KAMU ❤️",
+
         text:
         "Sesederhana itu. Aku sayang kamu dan ingin kamu selalu tahu itu."
     },
 
-    {
-        title:"JANGAN TINGGALIN AKU 🥺",
-        text:
-        "Kalau ada satu hal yang aku minta, tetaplah tinggal dan tetap menjadi bagian dari ceritaku."
-    },
 
     {
-        title:"KAMU FAVORITKU 💕",
+        title:
+        "JANGAN TINGGALIN AKU 🥺",
+
+        text:
+        "Kalau ada satu hal yang aku minta, tetaplah tinggal dan tetap jadi bagian dari ceritaku."
+    },
+
+
+    {
+        title:
+        "KAMU FAVORITKU 💕",
+
         text:
         "Dari banyaknya orang di dunia ini, kamu tetap punya tempat yang berbeda."
     },
 
+
     {
-        title:"KAMU SELALU DI HATIKU 🌸",
+        title:
+        "KAMU SELALU DI HATIKU 🌸",
+
         text:
         "Walaupun kita sedang berjauhan, kamu tetap menjadi bagian dari pikiranku."
     },
 
-    {
-        title:"TETAP BERSAMAKU YA ❤️",
-        text:
-        "Aku ingin membuat lebih banyak kenangan, cerita, dan hari-hari indah bersamamu."
-    },
 
     {
-        title:"MY GIRL, I LOVE YOU 💗",
+        title:
+        "TETAP BERSAMAKU YA ❤️",
+
         text:
-        "Hari kecil ini aku buat hanya untuk mengingatkanmu betapa berartinya kamu."
+        "Aku ingin membuat lebih banyak kenangan, lebih banyak cerita, dan lebih banyak hari bersamamu."
     },
 
+
     {
-        title:"SELAMAT MY GIRL DAY 🌹",
+        title:
+        "MY GIRL, I LOVE YOU 💗",
+
         text:
-        "01 Oktober adalah hari kecil yang dibuat untuk seseorang yang sangat spesial."
+        "01 Oktober adalah hari kecil yang aku buat untuk mengingatkanmu betapa berartinya kamu."
+    },
+
+
+    {
+        title:
+        "SELAMAT MY GIRL DAY 🌹",
+
+        text:
+        "01 OKTOBER — MY GIRL. Semoga halaman kecil ini menjadi salah satu kenangan manis yang kamu simpan."
     }
 
 ];
@@ -2026,20 +2357,21 @@ const slides = [
 
 let currentSlide = 0;
 
-let timer;
+let slideTimer;
 
 
 /* =====================================================
-   BUKA FINAL
+   SHOW FINAL
 ===================================================== */
 
-function openFinal(){
+function showFinalPage(){
 
     document
         .getElementById(
             "memoryPage"
         )
-        .classList.remove(
+        .classList
+        .remove(
             "active"
         );
 
@@ -2048,7 +2380,8 @@ function openFinal(){
         .getElementById(
             "finalPage"
         )
-        .classList.add(
+        .classList
+        .add(
             "active"
         );
 
@@ -2056,10 +2389,10 @@ function openFinal(){
     currentSlide = 0;
 
 
-    showSlide();
+    showFinalSlide();
 
 
-    startTimer();
+    restartSlideTimer();
 
 
     window.scrollTo(
@@ -2071,22 +2404,24 @@ function openFinal(){
 
 
 /* =====================================================
-   TAMPILKAN SLIDE
+   SHOW SLIDE
 ===================================================== */
 
-function showSlide(){
+function showFinalSlide(){
 
     const slide =
-        slides[currentSlide];
+        finalSlides[
+            currentSlide
+        ];
 
 
-    const title =
+    const word =
         document.getElementById(
-            "finalTitle"
+            "shakeWord"
         );
 
 
-    title.textContent =
+    word.textContent =
         slide.title;
 
 
@@ -2098,35 +2433,42 @@ function showSlide(){
 
     const dots =
         document.getElementById(
-            "dots"
+            "slideDots"
         );
 
 
     dots.innerHTML =
-        slides.map(
-            (_,index) => `
+        finalSlides
+            .map(
+                (_,index) => `
 
-                <span
-                    class="dot
-                    ${
-                        index === currentSlide
-                        ? "active"
-                        : ""
-                    }"
-                ></span>
+                    <span
+                        class="
+                            dot
+                            ${
+                                index ===
+                                currentSlide
+                                ?
+                                "active"
+                                :
+                                ""
+                            }
+                        "
+                    ></span>
 
-            `
-        ).join("");
+                `
+            )
+            .join("");
 
 
-    /* Restart animasi */
-
-    title.style.animation =
+    word.style.animation =
         "none";
 
-    void title.offsetWidth;
 
-    title.style.animation =
+    void word.offsetWidth;
+
+
+    word.style.animation =
         "shake .8s infinite";
 
 }
@@ -2140,20 +2482,22 @@ function nextSlide(){
 
     if(
         currentSlide <
-        slides.length - 1
+        finalSlides.length - 1
     ){
 
         currentSlide++;
 
-        showSlide();
+        showFinalSlide();
 
-        startTimer();
+        restartSlideTimer();
 
     }else{
 
-        clearInterval(timer);
+        clearInterval(
+            slideTimer
+        );
 
-        showClosing();
+        showClosingPage();
 
     }
 
@@ -2172,9 +2516,9 @@ function previousSlide(){
 
         currentSlide--;
 
-        showSlide();
+        showFinalSlide();
 
-        startTimer();
+        restartSlideTimer();
 
     }
 
@@ -2185,27 +2529,31 @@ function previousSlide(){
    AUTO SLIDE
 ===================================================== */
 
-function startTimer(){
+function restartSlideTimer(){
 
-    clearInterval(timer);
+    clearInterval(
+        slideTimer
+    );
 
 
-    timer =
+    slideTimer =
         setInterval(
             () => {
 
                 if(
                     currentSlide <
-                    slides.length - 1
+                    finalSlides.length - 1
                 ){
 
                     currentSlide++;
 
-                    showSlide();
+                    showFinalSlide();
 
                 }else{
 
-                    clearInterval(timer);
+                    clearInterval(
+                        slideTimer
+                    );
 
                 }
 
@@ -2217,16 +2565,17 @@ function startTimer(){
 
 
 /* =====================================================
-   PENUTUP FOTO
+   CLOSING
 ===================================================== */
 
-function showClosing(){
+function showClosingPage(){
 
     document
         .getElementById(
             "finalPage"
         )
-        .classList.remove(
+        .classList
+        .remove(
             "active"
         );
 
@@ -2235,7 +2584,8 @@ function showClosing(){
         .getElementById(
             "closingPage"
         )
-        .classList.add(
+        .classList
+        .add(
             "active"
         );
 
@@ -2249,12 +2599,12 @@ function showClosing(){
 
 
 /* =====================================================
-   FLOATING HEART + BUNGA
+   FLOATING
 ===================================================== */
 
 function createFloating(){
 
-    const items = [
+    const objects = [
 
         "❤️",
         "💕",
@@ -2269,58 +2619,61 @@ function createFloating(){
     ];
 
 
-    const element =
+    const item =
         document.createElement(
             "div"
         );
 
 
-    element.className =
+    item.className =
         "floating";
 
 
-    element.textContent =
-        items[
+    item.textContent =
+        objects[
             Math.floor(
-                Math.random()
-                * items.length
+                Math.random() *
+                objects.length
             )
         ];
 
 
-    element.style.left =
-        Math.random()*100
-        + "vw";
+    item.style.left =
+        Math.random() *
+        100 +
+        "vw";
 
 
-    element.style.fontSize =
+    item.style.fontSize =
         15 +
-        Math.random()*25
-        + "px";
+        Math.random() *
+        25 +
+        "px";
 
 
-    element.style.animationDuration =
+    item.style.animationDuration =
         5 +
-        Math.random()*7
-        + "s";
+        Math.random() *
+        7 +
+        "s";
 
 
     document.body.appendChild(
-        element
+        item
     );
 
 
     setTimeout(
         () => {
-            element.remove();
+
+            item.remove();
+
         },
         12000
     );
 
 }
 
-
-/* Buat bunga/hati terus */
 
 setInterval(
     createFloating,
